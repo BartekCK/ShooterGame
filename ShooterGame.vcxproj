@@ -159,10 +159,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Game1vs1Scene.cpp" />
+    <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="MainMenuScene.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ShooterGame.cpp" />
+    <ClCompile Include="Stage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="Game1vs1Scene.h" />
+    <ClInclude Include="GameScene.h" />
+    <ClInclude Include="MainMenuScene.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="Path.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="Stage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
