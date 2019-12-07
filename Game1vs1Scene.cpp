@@ -26,7 +26,8 @@ void Game1vs1Scene::showWindow()
 	Player* player = new Player(path.PLAYER,16,2);
 
 
-	int x, y;
+	
+
 	while (!this->done) {
 
 		ALLEGRO_EVENT events;
@@ -35,35 +36,16 @@ void Game1vs1Scene::showWindow()
 
 		if (events.type == ALLEGRO_EVENT_TIMER) {
 
-
-			if (events.timer.source == engine->timmerVector[3]) {
-
-			}
-
-
+			
+			cameraTransform(player);
 
 			player->move(events);
 
 			move = true;
 		}
-		if (events.type == ALLEGRO_EVENT_MOUSE_AXES) {
-			x = events.mouse.x;
-			y = events.mouse.y;
-
-		}
-		if (events.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
-			if (events.mouse.button & 1) {//SHOT
-				x = events.mouse.x;
-				y = events.mouse.y;
-			}
-
-		}
+		
 
 		if (events.type == ALLEGRO_EVENT_KEY_DOWN) {
-
-
-			
-
 
 			switch (events.keyboard.keycode)
 			{
@@ -80,10 +62,8 @@ void Game1vs1Scene::showWindow()
 
 		if (move == true) {
 			move = false;
-			al_draw_bitmap(this->background, 0, 0, 0);
-			//Draw here
 
-
+			drawBackground(player);
 
 
 			player->show();
@@ -94,6 +74,8 @@ void Game1vs1Scene::showWindow()
 
 	engine->stopTimers();
 	delete player;
+
+	resetCamera();
 	this->stage->showMenu();
 
 }

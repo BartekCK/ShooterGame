@@ -23,12 +23,26 @@ Scene::~Scene()
 void Scene::setBackground(const char* backgroundBitmap)
 {
 
-	background = load_bitmap_at_size(backgroundBitmap, this->screen_width, this->screen_height);
+	this->background = load_bitmap_at_size(backgroundBitmap, this->screen_width, this->screen_height);
 	if (!background)
 	{
 		fprintf(stderr, "failed to load background bitmap!\n");
 		exit(0);
 	}
+
+	this->backgroundWidth = al_get_bitmap_width(this->background);
+	this->backgroundHeight = al_get_bitmap_height(this->background);
+}
+
+void Scene::drawBackground(Player* player)
+{
+	if (player->getXposition() >= backgroundXPosition + backgroundWidth) {
+		backgroundXPosition += backgroundWidth;
+	}
+
+	al_draw_bitmap(this->background, backgroundXPosition - backgroundWidth, 0, NULL);
+	al_draw_bitmap(this->background, backgroundXPosition, 0, NULL);
+	al_draw_bitmap(this->background, backgroundXPosition + backgroundWidth, 0, NULL);
 }
 
 
@@ -64,4 +78,35 @@ ALLEGRO_BITMAP* Scene::load_bitmap_at_size(const char* filename, int w, int h)
 
 	return resized_bmp;
 
+}
+
+
+void Scene :: cameraUpdate(float x, float y, int width, int height) {
+	cameraPosition[0] = -(backgroundWidth / 2) + (x + width / 2);
+	cameraPosition[1] = -(backgroundHeight / 2) + (y + height / 2);
+
+	if (cameraPosition[0] < 0)
+		cameraPosition[0] = 0;
+	if (cameraPosition[1] < 0)
+		cameraPosition[1] = 0;
+}
+
+void Scene::cameraTransform(Player *player)
+{
+
+	ALLEGRO_TRANSFORM camera;
+	cameraUpdate(player->getXposition(), player->getYposition(), player->getBitmapWidth() / 16, player->getBitmapHeight() / 2);
+	al_identity_transform(&camera);
+	al_translate_transform(&camera, -cameraPosition[0], -cameraPosition[1]);
+	al_use_transform(&camera);
+}
+
+void Scene::resetCamera()
+{
+	ALLEGRO_TRANSFORM camera;
+	cameraPosition[0] = 0;
+	backgroundXPosition = 0;
+	al_identity_transform(&camera);
+	al_translate_transform(&camera, 0, 0);
+	al_use_transform(&camera);
 }
