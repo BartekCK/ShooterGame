@@ -3,7 +3,6 @@
 
 
 
-
 Player::Player(const char* backgroundBitmap, const int frames, const int levels, CONTROL_SOURCE controlSource)
 	: Node(backgroundBitmap), frames(frames), levels(levels),controlSource(controlSource)
 {

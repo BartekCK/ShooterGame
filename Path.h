@@ -4,6 +4,7 @@ class Path
 {
 public:
 	const char* BACKGROUND_MAIN_MENU = "images/backgrounds/menuBackground.jpg";
+	const char* BACKGROUND_GAME_ADVENTURE = "images/backgrounds/adventureBackground.png";
 	const char* BACKGROUND_GAME = "images/backgrounds/gameBackground.jpg";
 
 	const char* PLAYER = "images/heroes/player.png";

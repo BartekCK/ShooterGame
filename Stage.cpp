@@ -68,7 +68,7 @@ void Stage::showGame()
 {
 	Path path;
 	gameScene = new GameScene(this);
-	gameScene->setBackground(path.BACKGROUND_GAME);
+	gameScene->setBackground(path.BACKGROUND_GAME_ADVENTURE);
 	gameScene->showWindow();
 }
 
