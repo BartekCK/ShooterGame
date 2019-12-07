@@ -42,7 +42,7 @@ void Game1vs1Scene::showWindow()
 
 
 
-			player->move();
+			player->move(events);
 
 			move = true;
 		}

@@ -17,7 +17,7 @@ void Player::show()
 	al_draw_bitmap_region(this->objectBitmap, this->shiftX, this->shiftY, this->bitmapWidth / frames, this->bitmapHeight / levels, this->xPosition, this->yPosition, 0);
 }
 
-void Player::move()
+void Player::move(ALLEGRO_EVENT events)
 {
 	ALLEGRO_KEYBOARD_STATE keyState;
 
@@ -25,22 +25,22 @@ void Player::move()
 
 	if (al_key_down(&keyState, ALLEGRO_KEY_DOWN)) {
 		this->yPosition += this->moveSpeed;
-		animation();
+		animation(events);
 	}
 	else if (al_key_down(&keyState, ALLEGRO_KEY_UP)) {
 		this->yPosition -= this->moveSpeed;
-		animation();
+		animation(events);
 	}
 	else if (al_key_down(&keyState, ALLEGRO_KEY_LEFT)) {
 		this->xPosition -= this->moveSpeed;
 		this->shiftY = this->getBitmapHeight() / 2;
-		animation();
+		animation(events);
 
 	}
 	else if (al_key_down(&keyState, ALLEGRO_KEY_RIGHT)) {
 		this->xPosition += this->moveSpeed;
 		this->shiftY = 0;
-		animation();
+		animation(events);
 
 	}
 
@@ -50,10 +50,14 @@ void Player::move()
 
 
 
-void Player::animation()
+void Player::animation(ALLEGRO_EVENT events)
 {
-	this->shiftX += ((this->getBitmapWidth() / this->frames));
-	if (this->shiftX >= this->getBitmapWidth())
-		this->shiftX = 0;
+
+	if (events.timer.source == engine->timmerVector[0]) {
+		this->shiftX += ((this->getBitmapWidth() / this->frames));
+		if (this->shiftX >= this->getBitmapWidth())
+			this->shiftX = 0;
+	}
+	
 
 }
