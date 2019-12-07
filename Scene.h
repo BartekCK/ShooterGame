@@ -20,7 +20,7 @@ protected:
 	int backgroundHeight=0;
 	bool done = false;
 
-	float cameraPosition[2] = { 0,0 };
+	float cameraPosition = 0;
 	float backgroundXPosition = 0;
 
 

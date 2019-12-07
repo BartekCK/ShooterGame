@@ -17,10 +17,9 @@ void Player::show()
 	al_draw_bitmap_region(this->objectBitmap, this->shiftX, this->shiftY, this->bitmapWidth / frames, this->bitmapHeight / levels, this->xPosition, this->yPosition, 0);
 }
 
-void Player::move(ALLEGRO_EVENT events)
+void Player::move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroundWidth, int backgroundHeight)
 {
 	ALLEGRO_KEYBOARD_STATE keyState;
-
 	al_get_keyboard_state(&keyState);
 
 	if (al_key_down(&keyState, ALLEGRO_KEY_DOWN)) {
@@ -43,6 +42,26 @@ void Player::move(ALLEGRO_EVENT events)
 		animation(events);
 
 	}
+
+
+	//Boundary lines
+	if (backgroundXPosition == 0 && this->getXposition() <= backgroundXPosition) {
+		this->setXposition(backgroundXPosition);
+	}
+
+	if (this->getXposition() <= backgroundXPosition - (backgroundWidth / 2)) {
+
+		this->setXposition(backgroundXPosition - (backgroundWidth / 2));
+
+	}
+
+	if (this->getYposition() <= 0)
+		this->setYposition(0);
+	if (this->getYposition() >= backgroundHeight - (this->getBitmapHeight() / 2))
+		this->setYposition(backgroundHeight - (this->getBitmapHeight() / 2));
+
+
+
 
 	
 

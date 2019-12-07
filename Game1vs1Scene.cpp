@@ -39,8 +39,11 @@ void Game1vs1Scene::showWindow()
 			
 			cameraTransform(player);
 
-			player->move(events);
+			player->move(events,this->backgroundXPosition,this->backgroundWidth,this->backgroundHeight);
 
+
+
+			
 			move = true;
 		}
 		

@@ -19,7 +19,7 @@ public:
 	Player(const char* backgroundBitmap, const int frames, const int levels);
 	~Player();
 	virtual void show() override;
-	void move(ALLEGRO_EVENT events);
+	void move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroundWidth, int backgroundHeight);
 	
 };
 

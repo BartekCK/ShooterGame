@@ -82,13 +82,12 @@ ALLEGRO_BITMAP* Scene::load_bitmap_at_size(const char* filename, int w, int h)
 
 
 void Scene :: cameraUpdate(float x, float y, int width, int height) {
-	cameraPosition[0] = -(backgroundWidth / 2) + (x + width / 2);
-	cameraPosition[1] = -(backgroundHeight / 2) + (y + height / 2);
+	cameraPosition = -(backgroundWidth / 2) + (x + width / 2);
 
-	if (cameraPosition[0] < 0)
-		cameraPosition[0] = 0;
-	if (cameraPosition[1] < 0)
-		cameraPosition[1] = 0;
+
+	if (cameraPosition < 0)
+		cameraPosition = 0;
+
 }
 
 void Scene::cameraTransform(Player *player)
@@ -97,14 +96,14 @@ void Scene::cameraTransform(Player *player)
 	ALLEGRO_TRANSFORM camera;
 	cameraUpdate(player->getXposition(), player->getYposition(), player->getBitmapWidth() / 16, player->getBitmapHeight() / 2);
 	al_identity_transform(&camera);
-	al_translate_transform(&camera, -cameraPosition[0], -cameraPosition[1]);
+	al_translate_transform(&camera, -cameraPosition, 0);
 	al_use_transform(&camera);
 }
 
 void Scene::resetCamera()
 {
 	ALLEGRO_TRANSFORM camera;
-	cameraPosition[0] = 0;
+	cameraPosition = 0;
 	backgroundXPosition = 0;
 	al_identity_transform(&camera);
 	al_translate_transform(&camera, 0, 0);
