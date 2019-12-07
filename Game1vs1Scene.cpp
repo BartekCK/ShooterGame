@@ -1,4 +1,5 @@
 #include "Game1vs1Scene.h"
+#include "Player.h"
 
 Game1vs1Scene::Game1vs1Scene(Stage* stage)
 	: stage(stage)
@@ -16,8 +17,14 @@ Game1vs1Scene::~Game1vs1Scene()
 void Game1vs1Scene::showWindow()
 {
 
+	Path path;
 	bool move = false;
 	this->done = false;
+
+	engine->startTimers();
+
+	Player* player = new Player(path.PLAYER,16,2);
+
 
 	int x, y;
 	while (!this->done) {
@@ -31,9 +38,11 @@ void Game1vs1Scene::showWindow()
 
 			if (events.timer.source == engine->timmerVector[3]) {
 
-
 			}
 
+
+
+			player->move();
 
 			move = true;
 		}
@@ -46,24 +55,27 @@ void Game1vs1Scene::showWindow()
 			if (events.mouse.button & 1) {//SHOT
 				x = events.mouse.x;
 				y = events.mouse.y;
-
-
-
-
-
 			}
 
 		}
 
-		else if (events.type == ALLEGRO_EVENT_KEY_DOWN) {
+		if (events.type == ALLEGRO_EVENT_KEY_DOWN) {
 
-	
+
+			
+
+
 			switch (events.keyboard.keycode)
 			{
 			case ALLEGRO_KEY_ESCAPE:
 				done = true;
 			}
+
+		
 		}
+
+
+
 
 
 		if (move == true) {
@@ -74,13 +86,14 @@ void Game1vs1Scene::showWindow()
 
 
 
-
+			player->show();
 			al_flip_display();
 		}
 
 	}
 
-
+	engine->stopTimers();
+	delete player;
 	this->stage->showMenu();
 
 }

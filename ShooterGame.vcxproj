@@ -165,6 +165,7 @@
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ShooterGame.cpp" />
     <ClCompile Include="Stage.cpp" />
@@ -180,6 +181,7 @@
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Path.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Stage.h" />
   </ItemGroup>
