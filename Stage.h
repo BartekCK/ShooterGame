@@ -8,6 +8,8 @@ class Stage
 	Scene* gameScene = NULL;
 	Scene* game1vs1Scene = NULL;
 
+	void memoryManage();
+
 public:
 	Stage();
 	~Stage();

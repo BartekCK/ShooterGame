@@ -18,7 +18,8 @@ void GameScene::showWindow()
 	bool move = false;
 	this->done = false;
 
-	int x, y;
+	engine->startTimers();
+
 	while (!this->done) {
 
 		ALLEGRO_EVENT events;
@@ -28,33 +29,14 @@ void GameScene::showWindow()
 		if (events.type == ALLEGRO_EVENT_TIMER) {
 
 			
-			if (events.timer.source == engine->timmerVector[3]) {
+			
 
-				
-			}
 
 
 			move = true;
 		}
-		if (events.type == ALLEGRO_EVENT_MOUSE_AXES) {
-			x = events.mouse.x;
-			y = events.mouse.y;
 
-		}
-		if (events.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
-			if (events.mouse.button & 1) {//SHOT
-				x = events.mouse.x;
-				y = events.mouse.y;
-
-
-				
-
-
-			}
-
-		}
-
-		else if (events.type == ALLEGRO_EVENT_KEY_DOWN) {
+		if (events.type == ALLEGRO_EVENT_KEY_DOWN) {
 			switch (events.keyboard.keycode)
 			{
 			case ALLEGRO_KEY_ESCAPE:
@@ -77,7 +59,8 @@ void GameScene::showWindow()
 
 	}
 
-	
+
+	engine->stopTimers();
 	this->stage->showMenu();
 
 }

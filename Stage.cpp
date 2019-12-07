@@ -13,6 +13,18 @@
 #include <allegro5/allegro_font.h>
 
 
+void Stage::memoryManage()
+{
+	if (gameScene != NULL) {
+		delete gameScene;
+		gameScene = NULL;
+	}
+	if (game1vs1Scene != NULL) {
+		delete game1vs1Scene;
+		game1vs1Scene = NULL;
+	}
+}
+
 Stage::Stage()
 {
 	if (!al_init()) {
@@ -27,17 +39,19 @@ Stage::Stage()
 	al_init_acodec_addon();
 	al_init_font_addon();
 	al_init_ttf_addon();
+
+	Path path;
+	menuScene = new MainMenuScene(this);
+	menuScene->setBackground(path.BACKGROUND_MAIN_MENU);
+
 }
 
 Stage::~Stage()
 {
 	if(menuScene != NULL)
 		delete menuScene;
-	if (game1vs1Scene != NULL)
-		delete gameScene;
-	if (game1vs1Scene != NULL)
-		delete game1vs1Scene;
-	
+	memoryManage();
+
 	al_uninstall_system();
 	std::cout << "Stage" << std::endl;
 }
@@ -45,30 +59,15 @@ Stage::~Stage()
 
 void Stage::showMenu()
 {
-	Path path;
-	if (menuScene == NULL) {
-		menuScene = new MainMenuScene(this);
-	}
-	else {
-		delete menuScene;
-		menuScene = NULL;
-		menuScene = new MainMenuScene(this);
-	}
-	menuScene->setBackground(path.BACKGROUND_MAIN_MENU);
+	memoryManage();
+	
 	menuScene->showWindow();
 }
 
 void Stage::showGame()
 {
 	Path path;
-	if (gameScene == NULL) {
-		gameScene = new GameScene(this);
-	}
-	else {
-		delete gameScene;
-		gameScene = NULL;
-		gameScene = new GameScene(this);
-	}
+	gameScene = new GameScene(this);
 	gameScene->setBackground(path.BACKGROUND_GAME);
 	gameScene->showWindow();
 }
@@ -76,14 +75,7 @@ void Stage::showGame()
 void Stage::showGame1vs1()
 {
 	Path path;
-	if (game1vs1Scene == NULL) {
-		game1vs1Scene = new Game1vs1Scene(this);
-	}
-	else {
-		delete game1vs1Scene;
-		game1vs1Scene = NULL;
-		game1vs1Scene = new Game1vs1Scene(this);
-	}
+	game1vs1Scene = new Game1vs1Scene(this);
 	game1vs1Scene->setBackground(path.BACKGROUND_GAME);
 	game1vs1Scene->showWindow();
 
