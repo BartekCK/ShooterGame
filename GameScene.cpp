@@ -4,21 +4,21 @@ GameScene::GameScene(Stage* stage)
 	: stage(stage)
 {
 	Path path;
-
+	engine->startTimers();
+	player = new Player(path.PLAYER, 16, 2);
 }
 
 GameScene::~GameScene()
 {
-
+	engine->stopTimers();
+	resetCamera();
+	delete player;
 	cout << "DESTRUKTOR Z GAME_SCENE" << endl;
 }
 
 void GameScene::showWindow()
 {
 	bool move = false;
-	this->done = false;
-
-	engine->startTimers();
 
 	while (!this->done) {
 
@@ -30,7 +30,8 @@ void GameScene::showWindow()
 
 			
 			
-
+			cameraTransform(player);
+			player->move(events, this->backgroundXPosition, this->backgroundWidth, this->backgroundHeight);
 
 
 			move = true;
@@ -47,12 +48,9 @@ void GameScene::showWindow()
 
 		if (move == true) {
 			move = false;
-			al_draw_bitmap(this->background, 0, 0, 0);
-			//Draw here
-
-
-
-
+			drawBackground(player);
+			player->show();
+			
 
 			al_flip_display();
 		}
@@ -60,7 +58,7 @@ void GameScene::showWindow()
 	}
 
 
-	engine->stopTimers();
+	
 	this->stage->showMenu();
 
 }

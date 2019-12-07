@@ -49,12 +49,11 @@ void Player::move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroun
 	if (backgroundXPosition == 0 && this->getXposition() <= backgroundXPosition) {
 		this->setXposition(backgroundXPosition);
 	}
-
 	if (this->getXposition() <= backgroundXPosition - (backgroundWidth / 2)) {
-
 		this->setXposition(backgroundXPosition - (backgroundWidth / 2));
-
 	}
+	
+
 
 	if (this->getYposition() <= 0)
 		this->setYposition(0);
@@ -62,9 +61,6 @@ void Player::move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroun
 		this->setYposition(backgroundHeight - (this->getBitmapHeight() / 2));
 
 
-
-
-	
 
 }
 

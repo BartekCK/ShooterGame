@@ -5,7 +5,7 @@
 class GameScene :public Scene
 {
 	Stage* stage = NULL;
-
+	Player* player = NULL;
 	
 
 public:
