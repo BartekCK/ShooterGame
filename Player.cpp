@@ -2,8 +2,10 @@
 #include<iostream>
 
 
-Player::Player(const char* backgroundBitmap, const int frames, const int levels)
-	: Node(backgroundBitmap), frames(frames), levels(levels)
+
+
+Player::Player(const char* backgroundBitmap, const int frames, const int levels, CONTROL_SOURCE controlSource)
+	: Node(backgroundBitmap), frames(frames), levels(levels),controlSource(controlSource)
 {
 
 }
@@ -23,48 +25,70 @@ void Player::move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroun
 	ALLEGRO_KEYBOARD_STATE keyState;
 	al_get_keyboard_state(&keyState);
 
-	if (al_key_down(&keyState, ALLEGRO_KEY_DOWN)) {
-		this->yPosition += this->moveSpeed;
-		animation(events);
-	}
-	else if (al_key_down(&keyState, ALLEGRO_KEY_UP)) {
-		this->yPosition -= this->moveSpeed;
-		animation(events);
-	}
-	else if (al_key_down(&keyState, ALLEGRO_KEY_LEFT)) {
-		this->xPosition -= this->moveSpeed;
-		this->shiftY = this->getBitmapHeight() / 2;
-		animation(events);
+	if (controlSource == CONTROL_SOURCE::ARROW_CONTROL) {
+		if (al_key_down(&keyState, ALLEGRO_KEY_DOWN)) {
+			this->yPosition += this->moveSpeed;
+			animation(events);
+		}
+		else if (al_key_down(&keyState, ALLEGRO_KEY_UP)) {
+			this->yPosition -= this->moveSpeed;
+			animation(events);
+		}
+		else if (al_key_down(&keyState, ALLEGRO_KEY_LEFT)) {
+			this->xPosition -= this->moveSpeed;
+			this->shiftY = this->getBitmapHeight() / 2;
+			animation(events);
 
+		}
+		else if (al_key_down(&keyState, ALLEGRO_KEY_RIGHT)) {
+			this->xPosition += this->moveSpeed;
+			this->shiftY = 0;
+			animation(events);
+
+		}
 	}
-	else if (al_key_down(&keyState, ALLEGRO_KEY_RIGHT)) {
-		this->xPosition += this->moveSpeed;
-		this->shiftY = 0;
-		animation(events);
+	else {
+		if (al_key_down(&keyState, ALLEGRO_KEY_S)) {
+			this->yPosition += this->moveSpeed;
+			animation(events);
+		}
+		else if (al_key_down(&keyState, ALLEGRO_KEY_W)) {
+			this->yPosition -= this->moveSpeed;
+			animation(events);
+		}
+		else if (al_key_down(&keyState, ALLEGRO_KEY_A)) {
+			this->xPosition -= this->moveSpeed;
+			this->shiftY = this->getBitmapHeight() / 2;
+			animation(events);
 
+		}
+		else if (al_key_down(&keyState, ALLEGRO_KEY_D)) {
+			this->xPosition += this->moveSpeed;
+			this->shiftY = 0;
+			animation(events);
+
+		}
 	}
 
+	useBorders(backgroundXPosition, backgroundWidth, backgroundHeight);
 
-	//Boundary lines
+}
+
+void Player::useBorders(float backgroundXPosition, int backgroundWidth, int backgroundHeight)
+{
 	if (backgroundXPosition == 0 && this->getXposition() <= backgroundXPosition) {
 		this->setXposition(backgroundXPosition);
 	}
 	if (this->getXposition() <= backgroundXPosition - (backgroundWidth / 2)) {
 		this->setXposition(backgroundXPosition - (backgroundWidth / 2));
 	}
-	
-
 
 	if (this->getYposition() <= 0)
 		this->setYposition(0);
 	if (this->getYposition() >= backgroundHeight - (this->getBitmapHeight() / 2))
 		this->setYposition(backgroundHeight - (this->getBitmapHeight() / 2));
 
-
-
 }
-
-
 
 void Player::animation(ALLEGRO_EVENT events)
 {

@@ -1,11 +1,12 @@
 #include "GameScene.h"
 
+
 GameScene::GameScene(Stage* stage)
 	: stage(stage)
 {
 	Path path;
 	engine->startTimers();
-	player = new Player(path.PLAYER, 16, 2);
+	player = new Player(path.PLAYER, 16, 2, CONTROL_SOURCE::ARROW_CONTROL);
 }
 
 GameScene::~GameScene()
