@@ -8,6 +8,7 @@ int Scene::screen_height = GetSystemMetrics(SM_CYSCREEN);
 
 Scene::Scene()
 {
+
 }
 
 
@@ -103,8 +104,6 @@ void Scene::cameraTransform(Player *player)
 void Scene::resetCamera()
 {
 	ALLEGRO_TRANSFORM camera;
-	cameraPosition = 0;
-	backgroundXPosition = 0;
 	al_identity_transform(&camera);
 	al_translate_transform(&camera, 0, 0);
 	al_use_transform(&camera);

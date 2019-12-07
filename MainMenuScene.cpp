@@ -25,6 +25,7 @@ MainMenuScene::~MainMenuScene()
 {
 	delete newGameButton;
 	delete endGameButton;
+	delete vsGameButton;
 	cout << "DESKTRUKTOR Z MAIN_MENU_SCENE" << endl;
 }
 

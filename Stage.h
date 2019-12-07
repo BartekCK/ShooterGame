@@ -12,10 +12,6 @@ public:
 	Stage();
 	~Stage();
 
-	void setMenuScene(Scene* scene);
-	void setGameScene(Scene* scene);
-	void setGame1vs1(Scene* scene);
-
 	void showMenu();
 	void showGame();
 	void showGame1vs1();

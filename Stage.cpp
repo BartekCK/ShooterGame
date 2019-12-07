@@ -1,6 +1,9 @@
 #include "Stage.h"
 #include "MainMenuScene.h"
 #include "GameScene.h"
+#include "Game1vs1Scene.h"
+#include "Path.h"
+#include <memory>
 
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
@@ -28,42 +31,61 @@ Stage::Stage()
 
 Stage::~Stage()
 {
-
-	delete menuScene;
-	delete gameScene;
-	delete game1vs1Scene;
+	if(menuScene != NULL)
+		delete menuScene;
+	if (game1vs1Scene != NULL)
+		delete gameScene;
+	if (game1vs1Scene != NULL)
+		delete game1vs1Scene;
+	
 	al_uninstall_system();
 	std::cout << "Stage" << std::endl;
 }
 
-void Stage::setMenuScene(Scene* scene)
-{
-	this->menuScene = scene;
-}
-
-void Stage::setGameScene(Scene* scene)
-{
-	this->gameScene = scene;
-
-}
-
-void Stage::setGame1vs1(Scene* scene)
-{
-	this->game1vs1Scene = scene;
-}
 
 void Stage::showMenu()
 {
-	this->menuScene->showWindow();
+	Path path;
+	if (menuScene == NULL) {
+		menuScene = new MainMenuScene(this);
+	}
+	else {
+		delete menuScene;
+		menuScene = NULL;
+		menuScene = new MainMenuScene(this);
+	}
+	menuScene->setBackground(path.BACKGROUND_MAIN_MENU);
+	menuScene->showWindow();
 }
 
 void Stage::showGame()
 {
-	this->gameScene->showWindow();
+	Path path;
+	if (gameScene == NULL) {
+		gameScene = new GameScene(this);
+	}
+	else {
+		delete gameScene;
+		gameScene = NULL;
+		gameScene = new GameScene(this);
+	}
+	gameScene->setBackground(path.BACKGROUND_GAME);
+	gameScene->showWindow();
 }
 
 void Stage::showGame1vs1()
 {
-	this->game1vs1Scene->showWindow();
+	Path path;
+	if (game1vs1Scene == NULL) {
+		game1vs1Scene = new Game1vs1Scene(this);
+	}
+	else {
+		delete game1vs1Scene;
+		game1vs1Scene = NULL;
+		game1vs1Scene = new Game1vs1Scene(this);
+	}
+	game1vs1Scene->setBackground(path.BACKGROUND_GAME);
+	game1vs1Scene->showWindow();
+
 }
 

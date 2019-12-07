@@ -11,7 +11,7 @@ Game1vs1Scene::Game1vs1Scene(Stage* stage)
 Game1vs1Scene::~Game1vs1Scene()
 {
 
-	cout << "DESTRUKTOR Z GAME_SCENE" << endl;
+	cout << "DESTRUKTOR Z GAME_SCENE_1_VS_1" << endl;
 }
 
 void Game1vs1Scene::showWindow()

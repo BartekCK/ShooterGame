@@ -21,7 +21,7 @@ protected:
 
 public:
 	Node(const char* backgroundBitmap);
-	~Node();
+	virtual ~Node();
 
 	int getBitmapWidth();
 	int getBitmapHeight();

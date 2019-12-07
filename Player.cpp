@@ -1,5 +1,5 @@
 #include "Player.h"
-
+#include<iostream>
 
 
 Player::Player(const char* backgroundBitmap, const int frames, const int levels)
@@ -10,6 +10,7 @@ Player::Player(const char* backgroundBitmap, const int frames, const int levels)
 
 Player::~Player()
 {
+	std::cout << "DESTRUKTOR Z PLAYER" << std::endl;
 }
 
 void Player::show()
