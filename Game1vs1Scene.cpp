@@ -67,9 +67,12 @@ void Game1vs1Scene::showWindow()
 			move = false;
 			al_draw_bitmap(this->background, 0, 0, 0);
 
-
+			players[0]->checkHit(this->players);
 			players[0]->show();
 			players[1]->show();
+
+			
+
 			al_flip_display();
 		}
 
@@ -82,7 +85,7 @@ void Game1vs1Scene::showWindow()
 }
 
 
-void Game1vs1Scene::internalBorders(Player* player)
+void Game1vs1Scene::internalBorders(Hero* player)
 {
 	if (player->getXposition() >= backgroundWidth - (player->getBitmapWidth() / 16)) {
 		player->setXposition(backgroundWidth - (player->getBitmapWidth() / 16));

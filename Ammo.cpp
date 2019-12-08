@@ -1,9 +1,8 @@
 #include "Ammo.h"
 #include <iostream>
-
 #include <allegro5/allegro_primitives.h>
 
-Ammo::Ammo(int xPosition, int yPosition, SHOOT_DIRECTION direction) :Node(xPosition, yPosition), direction(direction)
+Ammo::Ammo(int xPosition, int yPosition, SHOOT_DIRECTION direction) :xPosition(xPosition), yPosition(yPosition), direction(direction)
 {
 	this->endXPosition = xPosition;
 	this->endYPosition = yPosition;
@@ -11,7 +10,7 @@ Ammo::Ammo(int xPosition, int yPosition, SHOOT_DIRECTION direction) :Node(xPosit
 
 Ammo::~Ammo()
 {
-	std::cout << "DEKONSTRUKTOR Z AMMO"<<std::endl;
+	//std::cout << "DEKONSTRUKTOR Z AMMO"<<std::endl;
 }
 
 void Ammo::show()
@@ -36,4 +35,24 @@ int Ammo::getEndYPosition()
 SHOOT_DIRECTION Ammo::getDirection()
 {
 	return this->direction;
+}
+
+void Ammo::setXposition(int x)
+{
+	this->xPosition = x;
+}
+
+void Ammo::setYposition(int y)
+{
+	this->yPosition = y;
+}
+
+int Ammo::getXposition()
+{
+	return xPosition;
+}
+
+int Ammo::getYposition()
+{
+	return yPosition;
 }

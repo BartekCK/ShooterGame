@@ -2,14 +2,12 @@
 #include<iostream>
 
 Player::Player(const char* backgroundBitmap, const int frames, const int levels, CONTROL_SOURCE controlSource)
-	: Node(backgroundBitmap), frames(frames), levels(levels),controlSource(controlSource)
+	: Hero(backgroundBitmap, frames, levels),controlSource(controlSource)
 {
-	gun = new Gun();
 }
 
 Player::~Player()
 {
-	delete gun;
 	std::cout << "DESTRUKTOR Z PLAYER" << std::endl;
 }
 
@@ -87,10 +85,7 @@ void Player::makeShot(ALLEGRO_EVENT events)
 	}
 }
 
-Gun* Player::getGun()
-{
-	return this->gun;
-}
+
 
 void Player::useBorders(float backgroundXPosition, int backgroundWidth, int backgroundHeight)
 {

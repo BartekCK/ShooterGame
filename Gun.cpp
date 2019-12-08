@@ -22,12 +22,21 @@ void Gun::showBullet()
 		for (size_t i = 0; i < ammo.size(); i++) {
 			ammo[i].show();
 		}
+		
+
+
 		allocateMemory();
 	}
 
 
 	
 }
+
+std::vector<Ammo> Gun::getAmmo()
+{
+	return this->ammo;
+}
+
 
 void Gun::allocateMemory()
 {

@@ -3,6 +3,9 @@
 Node::Node(const char* backgroundBitmap) :backgroundBitmap(backgroundBitmap)
 {
 
+	xPosition = 10;
+	yPosition = 10;
+
 	this->objectBitmap = al_load_bitmap(this->backgroundBitmap);
 	if (!objectBitmap)
 	{
@@ -21,7 +24,6 @@ Node::Node(int xPosition, int yPosition):xPosition(xPosition), yPosition(yPositi
 Node::~Node()
 {
 	al_destroy_bitmap(this->objectBitmap);
-	cout << "DESTRUKTOR Z NODE" << endl;
 }
 
 int Node::getBitmapWidth()

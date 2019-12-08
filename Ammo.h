@@ -9,20 +9,34 @@ enum class SHOOT_DIRECTION
 	LEFT_SHOOT
 };
 
-class Ammo:public Node
+class Ammo
 {
 	Engine* engine = Engine::getInstance();
 	int endXPosition = 0;
 	int endYPosition = 0;
 	int shotSpeed = 15;
 	SHOOT_DIRECTION direction;
+
+	int xPosition = 0;
+	int yPosition = 0;
+
+
+
 public:
 	Ammo(int xPosition, int yPosition, SHOOT_DIRECTION direction);
 	~Ammo();
-	virtual void show() override;
+	void show();
 
 	int getEndXPosition();
 	int getEndYPosition();
 	SHOOT_DIRECTION getDirection();
+
+
+	void setXposition(int x);
+	void setYposition(int y);
+	int getXposition();
+	int getYposition();
+
+
 };
 

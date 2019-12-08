@@ -1,7 +1,7 @@
 #pragma once
-#include"Node.h"
+#include"Hero.h"
 #include"Engine.h"
-#include"Gun.h"
+
 
 
 enum class CONTROL_SOURCE
@@ -11,19 +11,12 @@ enum class CONTROL_SOURCE
 };
 
 
-class Player :public Node
+class Player :public Hero
 {
 	Engine* engine = Engine::getInstance();
-	Gun* gun = NULL;
-	int hp = 100;
-	const int frames;
-	const int levels;
+	
+
 	CONTROL_SOURCE controlSource;
-
-	float shiftX = 0;
-	float shiftY = 0;
-	int moveSpeed = 5;
-
 	void useBorders(float backgroundXPosition, int backgroundWidth, int backgroundHeight);
 	void animation(ALLEGRO_EVENT events);
 	void chooseShootDirection();
@@ -36,7 +29,6 @@ public:
 	void move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroundWidth, int backgroundHeight);
 
 	void makeShot(ALLEGRO_EVENT events);
-	Gun* getGun();
 	
 	
 };

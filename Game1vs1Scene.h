@@ -6,10 +6,9 @@
 class Game1vs1Scene :public Scene
 {
 	Stage* stage = NULL;
-	Player* player = NULL;
-	std::vector<Player*> players;
+	std::vector<Hero*> players;
 
-	void internalBorders(Player * player);
+	void internalBorders(Hero* player);
 
 public:
 	Game1vs1Scene(Stage* stage);
