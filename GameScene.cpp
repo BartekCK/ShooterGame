@@ -29,45 +29,31 @@ void GameScene::showWindow()
 
 		if (events.type == ALLEGRO_EVENT_TIMER) {
 
-			
-			
 			cameraTransform(player);
+
 			player->move(events, this->backgroundXPosition, this->backgroundWidth, this->backgroundHeight);
-
-
-
-
 
 			move = true;
 		}
 
 		if (events.type == ALLEGRO_EVENT_KEY_DOWN) {
+			
 			switch (events.keyboard.keycode)
 			{
-				case ALLEGRO_KEY_ESCAPE:
-					done = true;
-				case ALLEGRO_KEY_SPACE: {
-					
-					player->makeShot();
-					
-				}
+			case ALLEGRO_KEY_ESCAPE:
+				done = true;
+			default:
+				player->makeShot(events);
 			}
+			
 		}
-
 
 		if (move == true) {
 			move = false;
 			drawBackground(player);
+
 			player->show();
-
-			player->getGun()->showBullet();
-			
-			
-
-			
 		
-
-
 			al_flip_display();
 		}
 

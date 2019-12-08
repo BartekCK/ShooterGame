@@ -52,9 +52,11 @@ void Game1vs1Scene::showWindow()
 			{
 			case ALLEGRO_KEY_ESCAPE:
 				done = true;
+			default:
+				players[0]->makeShot(events);
+				players[1]->makeShot(events);
 			}
 
-		
 		}
 
 

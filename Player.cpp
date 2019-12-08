@@ -1,8 +1,6 @@
 #include "Player.h"
 #include<iostream>
 
-
-
 Player::Player(const char* backgroundBitmap, const int frames, const int levels, CONTROL_SOURCE controlSource)
 	: Node(backgroundBitmap), frames(frames), levels(levels),controlSource(controlSource)
 {
@@ -18,6 +16,7 @@ Player::~Player()
 void Player::show()
 {
 	al_draw_bitmap_region(this->objectBitmap, this->shiftX, this->shiftY, this->bitmapWidth / frames, this->bitmapHeight / levels, this->xPosition, this->yPosition, 0);
+	this->gun->showBullet();
 }
 
 void Player::move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroundWidth, int backgroundHeight)
@@ -74,17 +73,18 @@ void Player::move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroun
 
 }
 
-void Player::makeShot()
+void Player::makeShot(ALLEGRO_EVENT events)
 {
-	
-	if (this->shiftY == 0) {//Shot on right
-		this->gun->shot(this->xPosition + (this->bitmapWidth / frames),this->yPosition+(this->bitmapHeight/4), SHOOT_DIRECTION::RIGHT_SHOOT);
+	if (controlSource == CONTROL_SOURCE::ARROW_CONTROL) {
+		if (events.keyboard.keycode == ALLEGRO_KEY_SPACE) {
+			chooseShootDirection();
+		}
 	}
-	else //Shot on left
-	{
-		this->gun->shot(this->xPosition, this->yPosition + (this->bitmapHeight / 4), SHOOT_DIRECTION::LEFT_SHOOT);
+	else {
+		if (events.keyboard.keycode == ALLEGRO_KEY_F) {
+			chooseShootDirection();
+		}
 	}
-	
 }
 
 Gun* Player::getGun()
@@ -110,12 +110,20 @@ void Player::useBorders(float backgroundXPosition, int backgroundWidth, int back
 
 void Player::animation(ALLEGRO_EVENT events)
 {
-
 	if (events.timer.source == engine->timmerVector[0]) {
 		this->shiftX += ((this->getBitmapWidth() / this->frames));
 		if (this->shiftX >= this->getBitmapWidth())
 			this->shiftX = 0;
 	}
-	
+}
 
+void Player::chooseShootDirection()
+{
+	if (this->shiftY == 0) {//Shot on right
+		this->gun->shot(this->xPosition + (this->bitmapWidth / frames), this->yPosition + (this->bitmapHeight / 4), SHOOT_DIRECTION::RIGHT_SHOOT);
+	}
+	else //Shot on left
+	{
+		this->gun->shot(this->xPosition, this->yPosition + (this->bitmapHeight / 4), SHOOT_DIRECTION::LEFT_SHOOT);
+	}
 }

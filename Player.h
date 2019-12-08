@@ -26,6 +26,7 @@ class Player :public Node
 
 	void useBorders(float backgroundXPosition, int backgroundWidth, int backgroundHeight);
 	void animation(ALLEGRO_EVENT events);
+	void chooseShootDirection();
 	
 public:
 
@@ -34,7 +35,7 @@ public:
 	virtual void show() override;
 	void move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroundWidth, int backgroundHeight);
 
-	void makeShot();
+	void makeShot(ALLEGRO_EVENT events);
 	Gun* getGun();
 	
 	
