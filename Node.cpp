@@ -14,6 +14,10 @@ Node::Node(const char* backgroundBitmap) :backgroundBitmap(backgroundBitmap)
 	this->bitmapHeight = al_get_bitmap_height(this->objectBitmap);
 }
 
+Node::Node(int xPosition, int yPosition):xPosition(xPosition), yPosition(yPosition)
+{
+}
+
 Node::~Node()
 {
 	al_destroy_bitmap(this->objectBitmap);

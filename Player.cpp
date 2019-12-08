@@ -6,11 +6,12 @@
 Player::Player(const char* backgroundBitmap, const int frames, const int levels, CONTROL_SOURCE controlSource)
 	: Node(backgroundBitmap), frames(frames), levels(levels),controlSource(controlSource)
 {
-
+	gun = new Gun();
 }
 
 Player::~Player()
 {
+	delete gun;
 	std::cout << "DESTRUKTOR Z PLAYER" << std::endl;
 }
 
@@ -71,6 +72,24 @@ void Player::move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroun
 
 	useBorders(backgroundXPosition, backgroundWidth, backgroundHeight);
 
+}
+
+void Player::makeShot()
+{
+	
+	if (this->shiftY == 0) {//Shot on right
+		this->gun->shot(this->xPosition + (this->bitmapWidth / frames),this->yPosition+(this->bitmapHeight/4), SHOOT_DIRECTION::RIGHT_SHOOT);
+	}
+	else //Shot on left
+	{
+		this->gun->shot(this->xPosition, this->yPosition + (this->bitmapHeight / 4), SHOOT_DIRECTION::LEFT_SHOOT);
+	}
+	
+}
+
+Gun* Player::getGun()
+{
+	return this->gun;
 }
 
 void Player::useBorders(float backgroundXPosition, int backgroundWidth, int backgroundHeight)

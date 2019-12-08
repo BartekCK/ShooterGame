@@ -11,7 +11,7 @@
 #include <allegro5/allegro_acodec.h>
 #include <allegro5/allegro_ttf.h>
 #include <allegro5/allegro_font.h>
-
+#include <allegro5/allegro_primitives.h>
 
 void Stage::memoryManage()
 {
@@ -39,6 +39,7 @@ Stage::Stage()
 	al_init_acodec_addon();
 	al_init_font_addon();
 	al_init_ttf_addon();
+	al_init_primitives_addon();
 
 	Path path;
 	menuScene = new MainMenuScene(this);

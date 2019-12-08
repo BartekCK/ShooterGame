@@ -17,10 +17,11 @@ protected:
 
 	int bitmapWidth = 0;
 	int bitmapHeight = 0;
-	const char* backgroundBitmap;
+	const char* backgroundBitmap = NULL;
 
 public:
 	Node(const char* backgroundBitmap);
+	Node(int xPosition, int yPosition);
 	virtual ~Node();
 
 	int getBitmapWidth();
