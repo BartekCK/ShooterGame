@@ -18,6 +18,7 @@ protected:
 
 public:
 	Hero(const char* backgroundBitmap, const int frames, const int levels);
+	Hero(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels);
 	virtual ~Hero();
 
 	virtual void show()=0;
@@ -25,6 +26,8 @@ public:
 	virtual void move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroundWidth, int backgroundHeight)=0;
 
 	bool checkHit(std::vector<Hero*> heroes);
+	bool checkHp();
+	int getHp();
 	Gun* getGun();
 
 };

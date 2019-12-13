@@ -9,8 +9,10 @@ Game1vs1Scene::Game1vs1Scene(Stage* stage)
 	Path path;
 	engine->startTimers();
 	
-	players.push_back(new Player(path.PLAYER, 16, 2, CONTROL_SOURCE::ARROW_CONTROL));
-	players.push_back(new Player(path.PLAYER, 16, 2, CONTROL_SOURCE::WASD_CONTROL));
+
+	players.push_back(new Player(path.PLAYER, 10, screen_height / 2, 16, 2, CONTROL_SOURCE::WASD_CONTROL));
+	players.push_back(new Player(path.PLAYER, screen_width - 100, screen_height/2, 16, 2, CONTROL_SOURCE::ARROW_CONTROL));
+
 }
 
 Game1vs1Scene::~Game1vs1Scene()
@@ -70,6 +72,12 @@ void Game1vs1Scene::showWindow()
 			for (size_t i = 0; i< players.size(); i++) {
 				players[i]->checkHit(this->players);
 				players[i]->show();
+
+
+
+				if (players[i]->checkHp()) {
+					done = true;
+				}
 			}
 
 			

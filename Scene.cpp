@@ -8,17 +8,14 @@ int Scene::screen_height = GetSystemMetrics(SM_CYSCREEN);
 
 Scene::Scene()
 {
-
 }
 
 
 
 Scene::~Scene()
 {
-
 	al_destroy_bitmap(this->background);
 	cout << "DESKTRUKTOR ZE SCENE" << endl;
-
 }
 
 void Scene::setBackground(const char* backgroundBitmap)

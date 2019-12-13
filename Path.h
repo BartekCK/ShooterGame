@@ -13,4 +13,6 @@ public:
 	const char* BUTTON_END_GAME = "images/buttons/buttonEndGame.png";
 	const char* BUTTON_1_VS_1 = "images/buttons/button1vs1.png";
 
+	const char* OBJECT_HEALTH_BAR = "images/objects/healthBar.png";
+
 };

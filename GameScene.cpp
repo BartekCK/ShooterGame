@@ -6,7 +6,7 @@ GameScene::GameScene(Stage* stage)
 {
 	Path path;
 	engine->startTimers();
-	player = new Player(path.PLAYER, 16, 2, CONTROL_SOURCE::ARROW_CONTROL);
+	player = new Player(path.PLAYER, 10, 10, 16, 2, CONTROL_SOURCE::ARROW_CONTROL);
 }
 
 GameScene::~GameScene()

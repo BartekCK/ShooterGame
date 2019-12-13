@@ -1,11 +1,7 @@
 #include "Node.h"
 #include<iostream>
-Node::Node(const char* backgroundBitmap) :backgroundBitmap(backgroundBitmap)
+void Node::init()
 {
-
-	xPosition = 10;
-	yPosition = 10;
-
 	this->objectBitmap = al_load_bitmap(this->backgroundBitmap);
 	if (!objectBitmap)
 	{
@@ -15,6 +11,19 @@ Node::Node(const char* backgroundBitmap) :backgroundBitmap(backgroundBitmap)
 
 	this->bitmapWidth = al_get_bitmap_width(this->objectBitmap);
 	this->bitmapHeight = al_get_bitmap_height(this->objectBitmap);
+}
+Node::Node(const char* backgroundBitmap, int xPosition, int yPosition) :backgroundBitmap(backgroundBitmap), xPosition(xPosition), yPosition(yPosition)
+{
+	init();
+	
+}
+Node::Node(const char* backgroundBitmap) :backgroundBitmap(backgroundBitmap)
+{
+
+	xPosition = 10;
+	yPosition = 10;
+
+	init();
 }
 
 Node::Node(int xPosition, int yPosition):xPosition(xPosition), yPosition(yPosition)

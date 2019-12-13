@@ -7,6 +7,12 @@ Hero::Hero(const char* backgroundBitmap, const int frames, const int levels):Nod
 
 }
 
+Hero::Hero(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels)
+	:Node(backgroundBitmap, xPosition, yPosition), frames(frames), levels(levels)
+{
+	gun = new Gun();
+}
+
 Hero::~Hero()
 {
 	delete gun;
@@ -34,6 +40,10 @@ bool Hero::checkHit(std::vector<Hero*> heroes)
 				}
 				//Action to do when the target was hit
 
+				this -> hp -= 10;
+
+				
+
 
 				std::cout << "TRAFIONY ZATOPIONY" << std::endl;
 				return true;
@@ -43,6 +53,19 @@ bool Hero::checkHit(std::vector<Hero*> heroes)
 		}
 	}
 	return false;
+}
+
+bool Hero::checkHp()
+{
+	if (this->hp <= 0)
+		return true;
+	else
+		return false;
+}
+
+int Hero::getHp()
+{
+	return this->hp;
 }
 
 Gun* Hero::getGun()

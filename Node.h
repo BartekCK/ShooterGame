@@ -8,6 +8,8 @@ using namespace std;
 
 class Node
 {
+	void init();
+
 protected:
 
 	ALLEGRO_BITMAP* objectBitmap = NULL;
@@ -17,9 +19,11 @@ protected:
 
 	int bitmapWidth = 0;
 	int bitmapHeight = 0;
+
 	const char* backgroundBitmap = NULL;
 
 public:
+	Node(const char* backgroundBitmap, int xPosition, int yPosition);
 	Node(const char* backgroundBitmap);
 	Node(int xPosition, int yPosition);
 	virtual ~Node();

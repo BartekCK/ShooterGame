@@ -1,6 +1,7 @@
 #pragma once
 #include"Hero.h"
 #include"Engine.h"
+#include "HealthBar.h"
 
 
 
@@ -14,6 +15,7 @@ enum class CONTROL_SOURCE
 class Player :public Hero
 {
 	Engine* engine = Engine::getInstance();
+	HealthBar* healthBar = NULL;
 	
 
 	CONTROL_SOURCE controlSource;
@@ -23,7 +25,7 @@ class Player :public Hero
 	
 public:
 
-	Player(const char* backgroundBitmap, const int frames, const int levels, CONTROL_SOURCE controlSource);
+	Player(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels, CONTROL_SOURCE controlSource);
 	~Player();
 	virtual void show() override;
 	void move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroundWidth, int backgroundHeight);

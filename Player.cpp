@@ -1,18 +1,30 @@
 #include "Player.h"
 #include<iostream>
+#include "Path.h"
+#include <windows.h>
 
-Player::Player(const char* backgroundBitmap, const int frames, const int levels, CONTROL_SOURCE controlSource)
-	: Hero(backgroundBitmap, frames, levels),controlSource(controlSource)
+
+Player::Player(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels, CONTROL_SOURCE controlSource)
+	: Hero(backgroundBitmap, xPosition, yPosition, frames, levels),controlSource(controlSource)
 {
+	
+	Path path;
+	int x = 10;
+	if (xPosition >= 100)
+		x = GetSystemMetrics(SM_CXSCREEN)-365;
+	healthBar = new HealthBar(path.OBJECT_HEALTH_BAR,x,10,10);
 }
 
 Player::~Player()
 {
+	delete healthBar;
 	std::cout << "DESTRUKTOR Z PLAYER" << std::endl;
 }
 
 void Player::show()
 {
+	this->healthBar->readHp(this);
+	this->healthBar->show();
 	al_draw_bitmap_region(this->objectBitmap, this->shiftX, this->shiftY, this->bitmapWidth / frames, this->bitmapHeight / levels, this->xPosition, this->yPosition, 0);
 	this->gun->showBullet();
 }
@@ -114,11 +126,12 @@ void Player::animation(ALLEGRO_EVENT events)
 
 void Player::chooseShootDirection()
 {
+	int safeSpace = 100;
 	if (this->shiftY == 0) {//Shot on right
-		this->gun->shot(this->xPosition + (this->bitmapWidth / frames), this->yPosition + (this->bitmapHeight / 4), SHOOT_DIRECTION::RIGHT_SHOOT);
+		this->gun->shot(this->xPosition + (this->bitmapWidth / frames) + safeSpace, this->yPosition + (this->bitmapHeight / 4), SHOOT_DIRECTION::RIGHT_SHOOT);
 	}
 	else //Shot on left
 	{
-		this->gun->shot(this->xPosition, this->yPosition + (this->bitmapHeight / 4), SHOOT_DIRECTION::LEFT_SHOOT);
+		this->gun->shot(this->xPosition - safeSpace, this->yPosition + (this->bitmapHeight / 4), SHOOT_DIRECTION::LEFT_SHOOT);
 	}
 }
