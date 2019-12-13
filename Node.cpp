@@ -24,6 +24,7 @@ Node::Node(int xPosition, int yPosition):xPosition(xPosition), yPosition(yPositi
 Node::~Node()
 {
 	al_destroy_bitmap(this->objectBitmap);
+	std::cout << "DESTRUKTOR Z NODE" << std::endl;
 }
 
 int Node::getBitmapWidth()

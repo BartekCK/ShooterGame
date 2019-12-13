@@ -5,14 +5,15 @@
 
 class Gun
 {
-	std::vector<Ammo> ammo;
+	std::vector<Ammo*> ammo;
 
 public:
 	Gun();
 	~Gun();
 	void shot(int x, int y, SHOOT_DIRECTION direction);
 	void showBullet();
-	void allocateMemory();
-	std::vector<Ammo> getAmmo();
+	bool allocateMemory(vector<Ammo*>::iterator iter);
+
+	std::vector<Ammo*> getAmmo();
 };
 

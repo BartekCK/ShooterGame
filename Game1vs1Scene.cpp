@@ -67,10 +67,14 @@ void Game1vs1Scene::showWindow()
 			move = false;
 			al_draw_bitmap(this->background, 0, 0, 0);
 
-			players[0]->checkHit(this->players);
-			players[0]->show();
-			players[1]->show();
+			for (size_t i = 0; i< players.size(); i++) {
+				players[i]->checkHit(this->players);
+				players[i]->show();
+			}
 
+			
+			
+			
 			
 
 			al_flip_display();
