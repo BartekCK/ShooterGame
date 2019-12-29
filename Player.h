@@ -16,7 +16,6 @@ class Player :public Hero
 {
 	Engine* engine = Engine::getInstance();
 	HealthBar* healthBar = NULL;
-	
 
 	CONTROL_SOURCE controlSource;
 	void useBorders(float backgroundXPosition, int backgroundWidth, int backgroundHeight);
@@ -29,8 +28,8 @@ public:
 	~Player();
 	virtual void show() override;
 	void move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroundWidth, int backgroundHeight);
-
 	void makeShot(ALLEGRO_EVENT events);
+	void addHealth();
 	
 	
 };

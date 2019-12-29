@@ -14,5 +14,6 @@ public:
 	const char* BUTTON_1_VS_1 = "images/buttons/button1vs1.png";
 
 	const char* OBJECT_HEALTH_BAR = "images/objects/healthBar.png";
+	const char* OBJECT_HEART = "images/objects/heart.png";
 
 };

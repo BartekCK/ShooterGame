@@ -9,14 +9,15 @@ protected:
 	Gun* gun = NULL;
 	int hp = 100;
 
-	const int frames;
-	const int levels;
-
 	float shiftX = 0;
 	float shiftY = 0;
 	int moveSpeed = 5;
 
 public:
+
+	const int frames;
+	const int levels;
+
 	Hero(const char* backgroundBitmap, const int frames, const int levels);
 	Hero(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels);
 	virtual ~Hero();
@@ -29,6 +30,8 @@ public:
 	bool checkHp();
 	int getHp();
 	Gun* getGun();
+
+	
 
 };
 

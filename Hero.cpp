@@ -16,7 +16,7 @@ Hero::Hero(const char* backgroundBitmap, int xPosition, int yPosition, const int
 Hero::~Hero()
 {
 	delete gun;
-	std::cout << "Dekonstruktor z Hero" << std::endl;
+	std::cout << "Dekonstruktor z HERO" << std::endl;
 }
 
 bool Hero::checkHit(std::vector<Hero*> heroes)

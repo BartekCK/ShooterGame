@@ -7,7 +7,6 @@
 Player::Player(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels, CONTROL_SOURCE controlSource)
 	: Hero(backgroundBitmap, xPosition, yPosition, frames, levels),controlSource(controlSource)
 {
-	
 	Path path;
 	int x = 10;
 	if (xPosition >= 100)
@@ -80,7 +79,6 @@ void Player::move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroun
 	}
 
 	useBorders(backgroundXPosition, backgroundWidth, backgroundHeight);
-
 }
 
 void Player::makeShot(ALLEGRO_EVENT events)
@@ -95,6 +93,12 @@ void Player::makeShot(ALLEGRO_EVENT events)
 			chooseShootDirection();
 		}
 	}
+}
+
+void Player::addHealth()
+{
+	if(this->hp<=90)
+		this->hp += 10;
 }
 
 
