@@ -34,9 +34,8 @@ void GameScene::showWindow()
 			cameraTransform(player);
 
 			player->move(events, this->backgroundXPosition, this->backgroundWidth, this->backgroundHeight);
-			heart->calculateCoordinates();
-
-
+			player->getHealthBar()->setXposition(this->cameraPosition);
+			heart->calculateCoordinates(cameraPosition, screen_width, screen_height);
 
 
 
@@ -57,8 +56,10 @@ void GameScene::showWindow()
 
 		if (move == true) {
 			move = false;
-			drawBackground(player);
 
+		
+
+			drawBackground(player);
 
 			heart->show();
 			player->show();

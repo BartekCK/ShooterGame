@@ -101,6 +101,11 @@ void Player::addHealth()
 		this->hp += 10;
 }
 
+HealthBar* Player::getHealthBar()
+{
+	return this->healthBar;
+}
+
 
 
 void Player::useBorders(float backgroundXPosition, int backgroundWidth, int backgroundHeight)

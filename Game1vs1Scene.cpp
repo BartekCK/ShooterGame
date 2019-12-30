@@ -40,14 +40,12 @@ void Game1vs1Scene::showWindow()
 
 		if (events.type == ALLEGRO_EVENT_TIMER) {
 
+			for (size_t i = 0; i < players.size(); i++) {
+				players[i]->move(events, this->backgroundXPosition, this->backgroundWidth, this->backgroundHeight);
+				internalBorders(players[i]);
+			}
+			heart->calculateCoordinates(cameraPosition, screen_width, screen_height);
 
-			players[0]->move(events,this->backgroundXPosition,this->backgroundWidth,this->backgroundHeight);
-			players[1]->move(events,this->backgroundXPosition,this->backgroundWidth,this->backgroundHeight);
-			internalBorders(players[0]);
-			internalBorders(players[1]);
-
-			heart->calculateCoordinates();
-			
 			move = true;
 		}
 		

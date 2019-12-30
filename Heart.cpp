@@ -42,17 +42,21 @@ bool Heart::isVisible()
 	return visible;
 }
 
-void Heart::calculateCoordinates()
+void Heart::calculateCoordinates(int cameraPosition, int screen_width, int screen_height)
 {
 	if (!visible) {
 
-		srand(time(NULL));
-		xPosition = (std::rand() % GetSystemMetrics(SM_CXSCREEN));
-		yPosition = (std::rand() % GetSystemMetrics(SM_CYSCREEN));
+		srand(time(NULL)*256);
+
+
+		xPosition = (std::rand() % screen_width)+cameraPosition;
+		yPosition = (std::rand() % screen_height);
 
 		if (std::rand() % 10 == 0) {
 			visible = true;
 			std::cout << "POKAZUJE SIE" << std::endl;
 		}
 	}
+	if (cameraPosition > xPosition)
+	 visible = false;
 }

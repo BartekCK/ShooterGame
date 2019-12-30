@@ -92,7 +92,7 @@ void Scene::cameraTransform(Player *player)
 {
 
 	ALLEGRO_TRANSFORM camera;
-	cameraUpdate(player->getXposition(), player->getYposition(), player->getBitmapWidth() / 16, player->getBitmapHeight() / 2);
+	cameraUpdate(player->getXposition(), player->getYposition(), player->getBitmapWidth() / player->frames, player->getBitmapHeight() / player->levels);
 	al_identity_transform(&camera);
 	al_translate_transform(&camera, -cameraPosition, 0);
 	al_use_transform(&camera);

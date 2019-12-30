@@ -14,6 +14,6 @@ public:
 
 	bool isVisible();
 
-	void calculateCoordinates();
+	void calculateCoordinates(int cameraPosition, int screen_width, int screen_height);
 };
 

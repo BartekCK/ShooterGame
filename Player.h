@@ -30,6 +30,7 @@ public:
 	void move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroundWidth, int backgroundHeight);
 	void makeShot(ALLEGRO_EVENT events);
 	void addHealth();
+	HealthBar* getHealthBar();
 	
 	
 };
