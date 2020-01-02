@@ -13,7 +13,7 @@ class GameScene :public Scene
 	std::vector<Hero*> enemies;
 
 
-	
+	void allocateMemory();
 
 public:
 	GameScene(Stage* stage);

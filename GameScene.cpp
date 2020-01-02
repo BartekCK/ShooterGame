@@ -11,6 +11,7 @@ GameScene::GameScene(Stage* stage)
 	
 
 	enemies.push_back(new Enemy(path.ENEMY_SMALL, 1000, 0, 10, 2, player));
+	enemies.push_back(new Enemy(path.ENEMY_SMALL, 1000, 900, 10, 2, player));
 
 }
 
@@ -20,7 +21,6 @@ GameScene::~GameScene()
 	resetCamera();
 	delete player;
 	delete heart;
-	//delete enemy;//TEMP
 
 	for (size_t i = 0; i < enemies.size(); i++) {
 		delete enemies[i];
@@ -50,16 +50,12 @@ void GameScene::showWindow()
 			heart->calculateCoordinates(cameraPosition, screen_width, screen_height);
 
 
-
 			for (size_t i = 0; i < enemies.size(); i++) {
 
 				enemies[i]->move(events, this->backgroundXPosition, this->backgroundWidth, this->backgroundHeight);
 				enemies[i]->makeShot(events);
 
 			}
-
-			
-			
 
 
 			move = true;
@@ -80,39 +76,46 @@ void GameScene::showWindow()
 		if (move == true) {
 			move = false;
 
-		
-
 			drawBackground(player);
-
-
-			player->checkHit(enemies);//TEST IT
 
 			heart->show();
 			player->show();
-
-
+			player->checkHit(enemies);//When players get hits by enemies
 
 			for (size_t i = 0; i < enemies.size(); i++) {
 				enemies[i]->show();
-				enemies[i]->checkHit(player);
-
+				enemies[i]->checkHit(player);//When enemies get hits by player
+				
 			}
 		
-			heart->checkHit(player);
+			heart->checkHit(player);//To check that player touch the heart
 
-			if (player->checkHp()) {
+			if (player->checkHp()) {//When player is dead
 				done = true;
 			}
 
+			allocateMemory();//To delete death enemies
 			al_flip_display();
 		}
 
 	}
 
-
-	
 	this->stage->showMenu();
-
 }
 
 
+void GameScene::allocateMemory()
+{
+	vector<Hero *>::iterator it;
+	for (it = enemies.begin(); it != enemies.end(); it++) {
+		if ((*it)->checkHp()) {
+			if (*it != NULL) {
+				Hero* temp = *it;
+				enemies.erase(it);
+				delete temp;
+				temp = NULL;
+				break;
+			}
+		}
+	}
+}

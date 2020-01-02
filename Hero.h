@@ -29,11 +29,12 @@ public:
 
 	bool checkHit(std::vector<Hero*> heroes);
 	bool checkHit(Hero * hero);
+
 	bool checkHp();
 	int getHp();
+
 	Gun* getGun();
 
-	
 
 };
 

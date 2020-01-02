@@ -1,4 +1,5 @@
 #include "Enemy.h"
+#include <iostream>
 
 Enemy::Enemy(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels, Hero* player) :Hero(backgroundBitmap, xPosition, yPosition, frames, levels), player(player)
 {
@@ -7,10 +8,12 @@ Enemy::Enemy(const char* backgroundBitmap, int xPosition, int yPosition, const i
 
 Enemy::~Enemy()
 {
+	std::cout << "DEKONSTRUKTOR Z ENEMY" << std::endl;
 }
 
 void Enemy::show()
 {
+	
 	al_draw_bitmap_region(this->objectBitmap, this->shiftX, this->shiftY, this->bitmapWidth / frames, this->bitmapHeight / levels, this->xPosition, this->yPosition, 0);
 	this->gun->showBullet();
 
@@ -72,3 +75,4 @@ void Enemy::animation(ALLEGRO_EVENT events)
 			this->shiftX = 0;
 	}
 }
+

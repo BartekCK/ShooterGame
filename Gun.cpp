@@ -8,6 +8,12 @@ Gun::Gun()
 Gun::~Gun()
 {
 	std::cout << "Desktuktor z GUN" << std::endl;
+
+	for (size_t i = 0; i < ammo.size(); i++) {
+		delete ammo[i];
+	}
+	ammo.clear();
+	ammo.shrink_to_fit();
 }
 
 void Gun::shot(int x, int y, SHOOT_DIRECTION direction)
