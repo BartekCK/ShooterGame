@@ -6,6 +6,7 @@ class Hero:public Node
 {
 protected:
 
+	Engine* engine = Engine::getInstance();
 	Gun* gun = NULL;
 	int hp = 100;
 
@@ -27,6 +28,7 @@ public:
 	virtual void move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroundWidth, int backgroundHeight)=0;
 
 	bool checkHit(std::vector<Hero*> heroes);
+	bool checkHit(Hero * hero);
 	bool checkHp();
 	int getHp();
 	Gun* getGun();

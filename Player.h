@@ -14,7 +14,7 @@ enum class CONTROL_SOURCE
 
 class Player :public Hero
 {
-	Engine* engine = Engine::getInstance();
+	
 	HealthBar* healthBar = NULL;
 
 	CONTROL_SOURCE controlSource;
@@ -27,8 +27,8 @@ public:
 	Player(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels, CONTROL_SOURCE controlSource);
 	~Player();
 	virtual void show() override;
-	void move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroundWidth, int backgroundHeight);
-	void makeShot(ALLEGRO_EVENT events);
+	virtual void move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroundWidth, int backgroundHeight) override;
+	virtual void makeShot(ALLEGRO_EVENT events) override;
 	void addHealth();
 	HealthBar* getHealthBar();
 	

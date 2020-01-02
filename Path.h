@@ -8,6 +8,8 @@ public:
 	const char* BACKGROUND_GAME = "images/backgrounds/gameBackground.jpg";
 
 	const char* PLAYER = "images/heroes/player.png";
+	const char* ENEMY_SMALL = "images/heroes/enemy/smallEnemy.png";
+	const char* ENEMY_ZOMBIE = "images/heroes/enemy/mainZombie.png";
 
 	const char* BUTTON_NEW_GAME = "images/buttons/buttonNewGame.png";
 	const char* BUTTON_END_GAME = "images/buttons/buttonEndGame.png";

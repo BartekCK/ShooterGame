@@ -42,15 +42,43 @@ bool Hero::checkHit(std::vector<Hero*> heroes)
 
 				this -> hp -= 10;
 
-				
-
-
-				std::cout << "TRAFIONY ZATOPIONY" << std::endl;
+			
 				return true;
 			}
 
 
 		}
+	}
+	return false;
+}
+
+bool Hero::checkHit(Hero* hero)
+{
+	
+
+	std::vector<Ammo*> ammo = hero->getGun()->getAmmo();
+
+	for (auto it = ammo.begin(); it != ammo.end(); it++) {
+
+		if (((*it)->getEndXPosition() > xPosition && (*it)->getEndXPosition() < xPosition + bitmapWidth / frames) &&
+			((*it)->getEndYPosition() > yPosition && (*it)->getEndYPosition() < yPosition + bitmapHeight / levels)) {
+
+
+			if ((*it)->getDirection() == SHOOT_DIRECTION::RIGHT_SHOOT)//Trick 
+				(*it)->setXposition(-200000);
+			else
+			{
+				(*it)->setXposition(200000);
+			}
+			//Action to do when the target was hit
+
+			this->hp -= 10;
+;
+			return true;
+		}
+
+
+		
 	}
 	return false;
 }

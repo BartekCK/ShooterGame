@@ -2,8 +2,6 @@
 #include "Player.h"
 
 
-
-
 Game1vs1Scene::Game1vs1Scene(Stage* stage)
 	: stage(stage)
 {
@@ -62,9 +60,6 @@ void Game1vs1Scene::showWindow()
 			}
 
 		}
-
-
-
 
 
 		if (move == true) {
