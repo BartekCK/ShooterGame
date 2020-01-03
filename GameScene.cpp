@@ -10,8 +10,8 @@ GameScene::GameScene(Stage* stage)
 	heart = new Heart(path.OBJECT_HEART);
 	
 
-	enemies.push_back(new Enemy(path.ENEMY_SMALL, 1000, 0, 10, 2, player));
-	enemies.push_back(new Enemy(path.ENEMY_SMALL, 1000, 900, 10, 2, player));
+	enemies.push_back(new Enemy(path.ENEMY_BOSS, 1000, 0,11, 2, 50, player));
+	enemies.push_back(new Enemy(path.ENEMY_SOLDIER, 1000, 900, 10, 2, 50, player));
 
 }
 

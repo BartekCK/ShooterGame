@@ -100,3 +100,5 @@ Gun* Hero::getGun()
 {
 	return this->gun;
 }
+
+

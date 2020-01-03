@@ -8,8 +8,14 @@ public:
 	const char* BACKGROUND_GAME = "images/backgrounds/gameBackground.jpg";
 
 	const char* PLAYER = "images/heroes/player.png";
-	const char* ENEMY_SMALL = "images/heroes/enemy/smallEnemy.png";
-	const char* ENEMY_ZOMBIE = "images/heroes/enemy/mainZombie.png";
+	const char* ENEMY_BOSS = "images/heroes/enemy/boss.png";
+
+	const char* ENEMY_SOLDIER = "images/heroes/enemy/soldier.png";
+	const char* ENEMY_SMALL_SOLDIER = "images/heroes/enemy/smallSoldier.png";
+	const char* ENEMY_GALACTIC_SOLDIER = "images/heroes/enemy/galacticSoldier.png";
+
+	const char* ENEMY_ZOMBIE = "images/heroes/enemy/zombie.png";
+	const char* ENEMY_SMALL_ZOMBIE = "images/heroes/enemy/smallZombie.png";
 
 	const char* BUTTON_NEW_GAME = "images/buttons/buttonNewGame.png";
 	const char* BUTTON_END_GAME = "images/buttons/buttonEndGame.png";

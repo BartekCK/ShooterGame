@@ -12,6 +12,7 @@ class Enemy: public Hero
 
 public:
 	Enemy(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels, Hero * player);
+	Enemy(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels, int hp, Hero * player);
 	~Enemy();
 
 	virtual void show() override;

@@ -1,9 +1,12 @@
 #include "Enemy.h"
 #include <iostream>
 
-Enemy::Enemy(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels, Hero* player) :Hero(backgroundBitmap, xPosition, yPosition, frames, levels), player(player)
+
+Enemy::Enemy(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels, int hp, Hero* player) 
+	: Hero(backgroundBitmap, xPosition, yPosition, frames, levels), 
+	player(player)
 {
-	this->hp = 30;
+	this->hp = hp;
 }
 
 Enemy::~Enemy()
@@ -37,6 +40,7 @@ void Enemy::move(ALLEGRO_EVENT events, float backgroundXPosition, int background
 {
 
 	if (events.timer.source == engine->timmerVector[0]) {
+
 		//X CORDINATE
 		if (player->getXposition() + player->getBitmapWidth() / player->frames < this->xPosition) {
 			this->xPosition -= this->moveSpeed;

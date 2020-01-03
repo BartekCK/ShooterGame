@@ -34,7 +34,7 @@ public:
 	int getHp();
 
 	Gun* getGun();
-
-
+	
+	
 };
 
