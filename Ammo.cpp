@@ -10,7 +10,6 @@ Ammo::Ammo(int xPosition, int yPosition, SHOOT_DIRECTION direction) :xPosition(x
 
 Ammo::~Ammo()
 {
-	std::cout << "DEKONSTRUKTOR Z AMMO"<<std::endl;
 }
 
 void Ammo::show()

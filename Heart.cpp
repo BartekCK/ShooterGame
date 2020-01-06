@@ -54,7 +54,6 @@ void Heart::calculateCoordinates(int cameraPosition, int screen_width, int scree
 
 		if (std::rand() % 10 == 0) {
 			visible = true;
-			std::cout << "POKAZUJE SIE" << std::endl;
 		}
 	}
 	if (cameraPosition > xPosition)

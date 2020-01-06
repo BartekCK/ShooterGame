@@ -14,6 +14,7 @@ class GameScene :public Scene
 
 
 	void allocateMemory();
+	void randEnemy();
 
 public:
 	GameScene(Stage* stage);

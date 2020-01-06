@@ -10,7 +10,6 @@ Button::Button(const char* backgroundBitmap)
 
 Button::~Button()
 {
-	std::cout << "DESTRUKTOR Z BUTTON" << std::endl;
 }
 
 void Button::show()

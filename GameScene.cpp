@@ -1,4 +1,5 @@
 #include "GameScene.h"
+#include "BuildEnemy.h"
 
 
 GameScene::GameScene(Stage* stage)
@@ -10,8 +11,9 @@ GameScene::GameScene(Stage* stage)
 	heart = new Heart(path.OBJECT_HEART);
 	
 
-	enemies.push_back(new Enemy(path.ENEMY_BOSS, 1000, 0,11, 2, 50, player));
-	enemies.push_back(new Enemy(path.ENEMY_SOLDIER, 1000, 900, 10, 2, 50, player));
+	//enemies.push_back(new Enemy(path.ENEMY_BOSS, 1000, 0,11, 2, 50, player));
+	//enemies.push_back(new Enemy(path.ENEMY_SOLDIER, 1000, 900, 10, 2, 50, player));
+	enemies.push_back(BuildEnemy::getSmallSoldier(player));
 
 }
 
@@ -55,6 +57,11 @@ void GameScene::showWindow()
 				enemies[i]->move(events, this->backgroundXPosition, this->backgroundWidth, this->backgroundHeight);
 				enemies[i]->makeShot(events);
 
+			}
+			if (events.timer.source == engine->timmerVector[3]) {
+				randEnemy();
+
+			
 			}
 
 
@@ -117,5 +124,28 @@ void GameScene::allocateMemory()
 				break;
 			}
 		}
+	}
+}
+
+void GameScene::randEnemy()
+{
+
+	srand(time(NULL));
+	if (rand() % 6 == 4) {
+
+
+		Enemy* temp = BuildEnemy::getEnemy(player);
+
+		do{
+			if (temp) {
+				enemies.push_back(temp);
+				break;
+			}
+			else {
+				Enemy* temp = BuildEnemy::getEnemy(player);
+
+			}
+
+		} while (temp == NULL);
 	}
 }
