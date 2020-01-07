@@ -8,7 +8,7 @@ class Engine
 {
 	ALLEGRO_DISPLAY* display = NULL;
 
-	int FPS[4];
+	int FPS[6];
 
 	static Engine* instance;
 	Engine();

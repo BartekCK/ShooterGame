@@ -176,6 +176,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ShooterGame.cpp" />
     <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -198,6 +199,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Stage.h" />
+    <ClInclude Include="Zombie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -13,6 +13,51 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\heroes">
+      <UniqueIdentifier>{dfa6b089-cc92-4539-903b-4623abfc02fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\heroes\enemies">
+      <UniqueIdentifier>{c3143955-ee3e-4c72-bd70-39c6762daab6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\heroes">
+      <UniqueIdentifier>{2259af65-89fa-4df7-96bf-51288c38e554}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\heroes\enemies">
+      <UniqueIdentifier>{2307c99a-1b51-4e35-8612-6d7d99946b22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\heroes\gun">
+      <UniqueIdentifier>{a4f009a8-c7aa-4f91-b5cf-d9baeb5d054c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\heroes\builders">
+      <UniqueIdentifier>{e0989379-05d2-4e67-abc0-93338c1ff005}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\heroes\objects">
+      <UniqueIdentifier>{f77bdd4e-7bdc-464d-a2b1-4ca1039bfdbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\scenes">
+      <UniqueIdentifier>{01a610e5-9bb7-462c-932d-2f5f7faf849c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\nodes">
+      <UniqueIdentifier>{853a8b2b-e4ac-46fb-bdd4-526fd1985e80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utilies">
+      <UniqueIdentifier>{a88b7de2-6cf1-4c2f-86c1-8084dd25b207}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\heroes\gun">
+      <UniqueIdentifier>{c915c13c-7c87-4cd9-9bc6-2b71659ef906}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\heroes\builders">
+      <UniqueIdentifier>{0473d024-89f0-44d5-a66c-be69894a9aee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\heroes\objects">
+      <UniqueIdentifier>{963e026d-8231-4d64-aebb-909db9c03452}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\scenes">
+      <UniqueIdentifier>{fce7de1c-180a-447c-801a-1a3e49f21314}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\nodes">
+      <UniqueIdentifier>{302064ef-2433-48d0-b96a-0db6f22656fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ShooterGame.cpp">
@@ -24,47 +69,50 @@
     <ClCompile Include="Stage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MainMenuScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Node.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game1vs1Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files\heroes\enemies</Filter>
     </ClCompile>
     <ClCompile Include="Gun.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Ammo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hero.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\heroes\gun</Filter>
     </ClCompile>
     <ClCompile Include="HealthBar.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\heroes\objects</Filter>
     </ClCompile>
     <ClCompile Include="Heart.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\heroes\objects</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Hero.cpp">
+      <Filter>Source Files\heroes</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\heroes</Filter>
+    </ClCompile>
+    <ClCompile Include="Ammo.cpp">
+      <Filter>Source Files\heroes\gun</Filter>
     </ClCompile>
     <ClCompile Include="BuildEnemy.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\heroes\builders</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuScene.cpp">
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Game1vs1Scene.cpp">
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Source Files\nodes</Filter>
+    </ClCompile>
+    <ClCompile Include="Zombie.cpp">
+      <Filter>Source Files\heroes\enemies</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,50 +125,53 @@
     <ClInclude Include="Stage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MainMenuScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Node.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Path.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game1vs1Scene.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Hero.h">
+      <Filter>Header Files\heroes</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\heroes</Filter>
     </ClInclude>
     <ClInclude Include="Gun.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\heroes\gun</Filter>
     </ClInclude>
     <ClInclude Include="Ammo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Hero.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HealthBar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Heart.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\heroes\gun</Filter>
     </ClInclude>
     <ClInclude Include="BuildEnemy.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\heroes\builders</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files\heroes\enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthBar.h">
+      <Filter>Header Files\heroes\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Heart.h">
+      <Filter>Header Files\heroes\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game1vs1Scene.h">
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuScene.h">
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>Header Files\nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\nodes</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.h">
+      <Filter>Header Files\utilies</Filter>
+    </ClInclude>
+    <ClInclude Include="Zombie.h">
+      <Filter>Header Files\heroes\enemies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

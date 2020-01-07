@@ -1,13 +1,15 @@
 #include "Enemy.h"
 #include <iostream>
 
-
-Enemy::Enemy(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels, int hp, Hero* player) 
-	: Hero(backgroundBitmap, xPosition, yPosition, frames, levels), 
+Enemy::Enemy(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels, HP_VALUE hpValue, MOVE_SPEED moveSpeed, SHOOT_TIME shootTime, Hero* player)
+	: Hero(backgroundBitmap, xPosition, yPosition, frames, levels),
+	shootTime(shootTime),
 	player(player)
 {
-	this->hp = hp;
+	this->moveSpeed = (int)moveSpeed;
+	this->hp = (int)hpValue;
 }
+
 
 Enemy::~Enemy()
 {
@@ -24,7 +26,7 @@ void Enemy::show()
 
 void Enemy::makeShot(ALLEGRO_EVENT events)
 {
-	if (events.timer.source == engine->timmerVector[3]) {
+	if (events.timer.source == engine->timmerVector[(int)shootTime]) {
 
 		Hero::makeShot(events);
 	}
