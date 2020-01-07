@@ -1,6 +1,16 @@
 #include "Hero.h"
 #include <iostream>
 
+void Hero::animation(ALLEGRO_EVENT events)
+{
+	if (events.timer.source == engine->timmerVector[0]) {
+		this->shiftX += ((this->getBitmapWidth() / this->frames));
+		if (this->shiftX >= this->getBitmapWidth())
+			this->shiftX = 0;
+	}
+}
+
+
 Hero::Hero(const char* backgroundBitmap, const int frames, const int levels):Node(backgroundBitmap),frames(frames),levels(levels)
 {
 	gun = new Gun();
@@ -17,6 +27,18 @@ Hero::~Hero()
 {
 	delete gun;
 	std::cout << "Dekonstruktor z HERO" << std::endl;
+}
+
+void Hero::makeShot(ALLEGRO_EVENT events)
+{
+	int safeSpace = 70;
+	if (this->shiftY == 0) {//Shot on right
+		this->gun->shot(this->xPosition + (this->bitmapWidth / frames) + safeSpace, this->yPosition + (this->bitmapHeight / 4), SHOOT_DIRECTION::RIGHT_SHOOT);
+	}
+	else //Shot on left
+	{
+		this->gun->shot(this->xPosition - safeSpace, this->yPosition + (this->bitmapHeight / 4), SHOOT_DIRECTION::LEFT_SHOOT);
+	}
 }
 
 bool Hero::checkHit(std::vector<Hero*> heroes)

@@ -14,6 +14,9 @@ protected:
 	float shiftY = 0;
 	int moveSpeed = 5;
 
+	void animation(ALLEGRO_EVENT events);
+
+
 public:
 
 	const int frames;
@@ -23,9 +26,10 @@ public:
 	Hero(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels);
 	virtual ~Hero();
 
-	virtual void show()=0;
-	virtual void makeShot(ALLEGRO_EVENT events) = 0;
 	virtual void move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroundWidth, int backgroundHeight)=0;
+
+	virtual void makeShot(ALLEGRO_EVENT events);
+
 
 	bool checkHit(std::vector<Hero*> heroes);
 	bool checkHit(Hero * hero);

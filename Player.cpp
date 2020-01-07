@@ -85,12 +85,13 @@ void Player::makeShot(ALLEGRO_EVENT events)
 {
 	if (controlSource == CONTROL_SOURCE::ARROW_CONTROL) {
 		if (events.keyboard.keycode == ALLEGRO_KEY_SPACE) {
-			chooseShootDirection();
+			
+			Hero::makeShot(events);
 		}
 	}
 	else {
 		if (events.keyboard.keycode == ALLEGRO_KEY_F) {
-			chooseShootDirection();
+			Hero::makeShot(events);
 		}
 	}
 }
@@ -124,23 +125,4 @@ void Player::useBorders(float backgroundXPosition, int backgroundWidth, int back
 
 }
 
-void Player::animation(ALLEGRO_EVENT events)
-{
-	if (events.timer.source == engine->timmerVector[0]) {
-		this->shiftX += ((this->getBitmapWidth() / this->frames));
-		if (this->shiftX >= this->getBitmapWidth())
-			this->shiftX = 0;
-	}
-}
 
-void Player::chooseShootDirection()
-{
-	int safeSpace = 100;
-	if (this->shiftY == 0) {//Shot on right
-		this->gun->shot(this->xPosition + (this->bitmapWidth / frames) + safeSpace, this->yPosition + (this->bitmapHeight / 4), SHOOT_DIRECTION::RIGHT_SHOOT);
-	}
-	else //Shot on left
-	{
-		this->gun->shot(this->xPosition - safeSpace, this->yPosition + (this->bitmapHeight / 4), SHOOT_DIRECTION::LEFT_SHOOT);
-	}
-}

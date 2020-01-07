@@ -7,9 +7,6 @@ class Enemy: public Hero
 {
 	Hero* player = NULL;
 
-
-
-
 public:
 	
 	Enemy(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels, int hp, Hero * player);
@@ -18,7 +15,6 @@ public:
 	virtual void show() override;
 	virtual void makeShot(ALLEGRO_EVENT events) override;
 	virtual void move(ALLEGRO_EVENT events, float backgroundXPosition, int backgroundWidth, int backgroundHeight) override;
-	void animation(ALLEGRO_EVENT events);//The same ? 
 
 	
 };
