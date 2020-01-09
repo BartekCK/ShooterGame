@@ -55,9 +55,8 @@ void GameScene::showWindow()
 
 			}
 			if (events.timer.source == engine->timmerVector[3]) {
-				randEnemy();
-
 			
+				randEnemy();
 			}
 
 
@@ -117,6 +116,7 @@ void GameScene::allocateMemory()
 				enemies.erase(it);
 				delete temp;
 				temp = NULL;
+				countKilledEnemies++;
 				break;
 			}
 		}
@@ -126,22 +126,29 @@ void GameScene::allocateMemory()
 void GameScene::randEnemy()
 {
 
-	srand(time(NULL));
-	if (rand() % 6 == 4) {
-
-
-		Enemy* temp = BuildEnemy::getEnemy(player);
-
-		do{
-			if (temp) {
-				enemies.push_back(temp);
-				break;
-			}
-			else {
-				Enemy* temp = BuildEnemy::getEnemy(player);
-
-			}
-
-		} while (temp == NULL);
+	if (this->countKilledEnemies == HOW_MUTCH_KILL) {
+		enemies.push_back(BuildEnemy::getBoss(player));
+		countKilledEnemies = 99;
 	}
+	else if(this->countKilledEnemies <= HOW_MUTCH_KILL){
+		srand(time(NULL));
+		if (rand() % (int)this->difficultyLevel == 1) {
+
+
+			Enemy* temp = BuildEnemy::getEnemy(player);
+
+			do {
+				if (temp) {
+					enemies.push_back(temp);
+					break;
+				}
+				else {
+					Enemy* temp = BuildEnemy::getEnemy(player);
+
+				}
+
+			} while (temp == NULL);
+		}
+	}
+
 }

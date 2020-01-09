@@ -54,7 +54,8 @@ Enemy* BuildEnemy::getFastZombie(Player* player)
 
 Enemy* BuildEnemy::getBoss(Player* player)
 {
-	return nullptr;
+	Path path;
+	return new Enemy(path.ENEMY_BOSS, getRandX(player), getRandY(), 11, 2, HP_VALUE::SUPER_HARD, MOVE_SPEED::MIDDLE, SHOOT_TIME::MIDDLE, player);;
 }
 
 

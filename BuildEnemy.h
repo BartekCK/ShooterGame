@@ -14,12 +14,11 @@ class BuildEnemy
 	static Enemy* getZombie(Player* player);
 	static Enemy* getFastZombie(Player* player);
 
-	static Enemy* getBoss(Player* player);
-
 	static int getRandX(Player* player);
 	static int getRandY();
 public:
 
+	static Enemy* getBoss(Player* player);
 	static Enemy* getEnemy(Player* player);
 };
 

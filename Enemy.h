@@ -19,7 +19,7 @@ enum class HP_VALUE {
 	LOW = 20,
 	MIDDLE = 50,
 	HARD = 70,
-	SUPER_HARD = 100,
+	SUPER_HARD = 200,
 };
 
 
