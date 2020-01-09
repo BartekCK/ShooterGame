@@ -9,6 +9,13 @@ GameScene::GameScene(Stage* stage)
 	engine->startTimers();
 	player = new Player(path.PLAYER, 10, 10, 16, 2, CONTROL_SOURCE::ARROW_CONTROL);
 	heart = new Heart(path.OBJECT_HEART);
+
+	if (engine->difficultyLevel == DifficultyLevel::EASY)
+		this->HOW_MUTCH_KILL = 15;
+	else if (engine->difficultyLevel == DifficultyLevel::MEDIUM)
+		this->HOW_MUTCH_KILL = 20;
+	else
+		this->HOW_MUTCH_KILL = 25;
 	
 	enemies.push_back(BuildEnemy::getEnemy(player));
 }
@@ -132,7 +139,7 @@ void GameScene::randEnemy()
 	}
 	else if(this->countKilledEnemies <= HOW_MUTCH_KILL){
 		srand(time(NULL));
-		if (rand() % (int)this->difficultyLevel == 1) {
+		if (rand() % (int)Engine::difficultyLevel == 1) {
 
 
 			Enemy* temp = BuildEnemy::getEnemy(player);

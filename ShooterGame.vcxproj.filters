@@ -114,6 +114,9 @@
     <ClCompile Include="Zombie.cpp">
       <Filter>Source Files\heroes\enemies</Filter>
     </ClCompile>
+    <ClCompile Include="LevelScene.cpp">
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -172,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="Zombie.h">
       <Filter>Header Files\heroes\enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelScene.h">
+      <Filter>Header Files\scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

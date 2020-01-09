@@ -6,6 +6,7 @@ class Stage
 {
 	Scene* menuScene = NULL;
 	Scene* gameScene = NULL;
+	Scene* levelScene = NULL;
 	Scene* game1vs1Scene = NULL;
 
 	void memoryManage();
@@ -17,5 +18,6 @@ public:
 	void showMenu();
 	void showGame();
 	void showGame1vs1();
+	void showLevel();
 };
 

@@ -4,20 +4,15 @@
 #include"Heart.h"
 #include"Enemy.h" 
 
-enum class DifficultyLevel {
-	EASY = 8,
-	MEDIUM = 6,
-	HARD = 3,
-};
+
 
 class GameScene :public Scene
 {
 	Stage* stage = NULL;
 	Player* player = NULL;
 	Heart* heart = NULL;
-	DifficultyLevel difficultyLevel = DifficultyLevel::HARD;
 	int countKilledEnemies = 0;
-	const int HOW_MUTCH_KILL = 5;
+	int HOW_MUTCH_KILL = 5;
 	std::vector<Hero*> enemies;
 
 

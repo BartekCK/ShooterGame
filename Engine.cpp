@@ -3,6 +3,9 @@
 #include <iostream>
 
 Engine* Engine::instance = 0;
+
+DifficultyLevel Engine::difficultyLevel = DifficultyLevel::EASY;
+
 Engine::Engine()
 {
 	this->display = al_create_display(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN));

@@ -6,6 +6,9 @@
 #include "Path.h"
 #include "Player.h"
 
+
+
+
 using namespace std;
 
 class Scene
@@ -22,7 +25,6 @@ protected:
 
 	float cameraPosition = 0;
 	float backgroundXPosition = 0;
-
 
 	void drawBackground(Player* player);
 	void cameraTransform(Player *player);

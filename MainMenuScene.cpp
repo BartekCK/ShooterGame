@@ -68,7 +68,7 @@ void MainMenuScene::showWindow()
 
 	if (newGame == true) {
 
-		this->stage->showGame();
+		this->stage->showLevel();
 	}
 	if (newGame1vs1 == true) {
 

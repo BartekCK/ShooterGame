@@ -2,6 +2,7 @@
 #include "MainMenuScene.h"
 #include "GameScene.h"
 #include "Game1vs1Scene.h"
+#include "LevelScene.h"
 #include "Path.h"
 #include <memory>
 
@@ -22,6 +23,10 @@ void Stage::memoryManage()
 	if (game1vs1Scene != NULL) {
 		delete game1vs1Scene;
 		game1vs1Scene = NULL;
+	}
+	if (levelScene != NULL) {
+		delete levelScene;
+		levelScene = NULL;
 	}
 }
 
@@ -80,5 +85,13 @@ void Stage::showGame1vs1()
 	game1vs1Scene->setBackground(path.BACKGROUND_GAME);
 	game1vs1Scene->showWindow();
 
+}
+
+void Stage::showLevel()
+{
+	Path path;
+	levelScene = new LevelScene(this);
+	levelScene->setBackground(path.BACKGROUND_MAIN_MENU);
+	levelScene->showWindow();
 }
 
