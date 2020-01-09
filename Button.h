@@ -12,4 +12,6 @@ public:
 	void show()override;
 
 	bool buttonClick(int x, int y);
+	const char* getPathBackgroundBitmap();
+
 };

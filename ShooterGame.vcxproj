@@ -170,6 +170,7 @@
     <ClCompile Include="HealthBar.cpp" />
     <ClCompile Include="Heart.cpp" />
     <ClCompile Include="Hero.cpp" />
+    <ClCompile Include="HeroScene.cpp" />
     <ClCompile Include="LevelScene.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="Node.cpp" />
@@ -194,6 +195,7 @@
     <ClInclude Include="HealthBar.h" />
     <ClInclude Include="Heart.h" />
     <ClInclude Include="Hero.h" />
+    <ClInclude Include="HeroScene.h" />
     <ClInclude Include="LevelScene.h" />
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="Node.h" />

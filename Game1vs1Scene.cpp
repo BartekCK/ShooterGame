@@ -7,10 +7,10 @@ Game1vs1Scene::Game1vs1Scene(Stage* stage)
 {
 	Path path;
 	engine->startTimers();
-	
+
 	this->heart = new Heart(path.OBJECT_HEART);
-	players.push_back(new Player(path.PLAYER, 10, screen_height / 2, 16, 2, CONTROL_SOURCE::WASD_CONTROL));
-	players.push_back(new Player(path.PLAYER, screen_width - 100, screen_height/2, 16, 2, CONTROL_SOURCE::ARROW_CONTROL));
+	players.push_back(new Player(Engine::playerOne.c_str(), 10, screen_height / 2, Engine::framesOne, 2, CONTROL_SOURCE::WASD_CONTROL));
+	players.push_back(new Player(Engine::playerTwo.c_str(), screen_width - 100, screen_height/2, Engine::framesTwo, 2, CONTROL_SOURCE::ARROW_CONTROL));
 
 }
 

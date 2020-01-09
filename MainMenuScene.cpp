@@ -72,6 +72,6 @@ void MainMenuScene::showWindow()
 	}
 	if (newGame1vs1 == true) {
 
-		this->stage->showGame1vs1();
+		this->stage->showHero();
 	}
 }

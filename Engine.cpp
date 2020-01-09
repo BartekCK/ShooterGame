@@ -1,8 +1,13 @@
 #include "Engine.h"
+#include "Path.h"
 #include <Windows.h>
 #include <iostream>
 
 Engine* Engine::instance = 0;
+string Engine::playerOne = "";
+string Engine::playerTwo = "";
+int Engine::framesOne = 16;
+int Engine::framesTwo = 16;
 
 DifficultyLevel Engine::difficultyLevel = DifficultyLevel::EASY;
 
@@ -36,6 +41,10 @@ Engine::Engine()
 		al_register_event_source(this->event_queue, al_get_timer_event_source(timmer));
 
 	}
+
+	Path path;
+	playerOne = path.PLAYER;
+	playerTwo = path.PLAYER;
 
 
 	startTimers();

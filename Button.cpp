@@ -10,6 +10,7 @@ Button::Button(const char* backgroundBitmap)
 
 Button::~Button()
 {
+	std::cout << "DEKONSTRUKTOR Z BUTTON" << std::endl;
 }
 
 void Button::show()
@@ -25,4 +26,9 @@ bool Button::buttonClick(int xClick, int yClick)
 		return true;
 	}
 	return false;
+}
+
+const char* Button::getPathBackgroundBitmap()
+{
+	return backgroundBitmap;
 }

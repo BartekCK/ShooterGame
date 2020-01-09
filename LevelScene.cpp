@@ -28,7 +28,6 @@ LevelScene::~LevelScene()
 void LevelScene::showWindow()
 {
 	int x = 0, y = 0;
-	bool newGame = false, newGame1vs1 = false;
 	this->done = false;
 	while (!this->done) {
 

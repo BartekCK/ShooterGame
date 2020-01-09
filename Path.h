@@ -28,4 +28,19 @@ public:
 	const char* OBJECT_HEALTH_BAR = "images/objects/healthBar.png";
 	const char* OBJECT_HEART = "images/objects/heart.png";
 
+
+
+	//Miniature
+
+	const char* MINIATURE_PLAYER = "images/heroes/miniatures/playerMiniature.png";
+	const char* MINIATURE_ENEMY_BOSS = "images/heroes/miniatures/bossMiniature.png";
+
+
+	const char* MINIATURE_ENEMY_SOLDIER = "images/heroes/miniatures/soldierMiniature.png";
+	const char* MINIATURE_ENEMY_SMALL_SOLDIER = "images/heroes/miniatures/smallSoldierMiniature.png";
+	const char* MINIATURE_ENEMY_GALACTIC_SOLDIER = "images/heroes/miniatures/galacticSoldierMiniature.png";
+
+	const char* MINIATURE_ENEMY_ZOMBIE = "images/heroes/miniatures/zombieMiniature.png";
+	const char* MINIATURE_ENEMY_SMALL_ZOMBIE = "images/heroes/miniatures/smallZombieMiniature.png";
+
 };

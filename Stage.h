@@ -8,6 +8,7 @@ class Stage
 	Scene* gameScene = NULL;
 	Scene* levelScene = NULL;
 	Scene* game1vs1Scene = NULL;
+	Scene* heroScene = NULL;
 
 	void memoryManage();
 
@@ -19,5 +20,6 @@ public:
 	void showGame();
 	void showGame1vs1();
 	void showLevel();
+	void showHero();
 };
 

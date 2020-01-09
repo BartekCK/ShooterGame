@@ -35,5 +35,7 @@ public:
 	void setYposition(int y);
 	int getXposition();
 	int getYposition();
+
+
 	virtual void show() = 0;
 };

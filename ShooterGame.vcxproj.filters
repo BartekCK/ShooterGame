@@ -117,6 +117,9 @@
     <ClCompile Include="LevelScene.cpp">
       <Filter>Source Files\scenes</Filter>
     </ClCompile>
+    <ClCompile Include="HeroScene.cpp">
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -177,6 +180,9 @@
       <Filter>Header Files\heroes\enemies</Filter>
     </ClInclude>
     <ClInclude Include="LevelScene.h">
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="HeroScene.h">
       <Filter>Header Files\scenes</Filter>
     </ClInclude>
   </ItemGroup>
