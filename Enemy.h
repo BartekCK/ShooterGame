@@ -31,7 +31,7 @@ class Enemy: public Hero
 public:
 	
 	Enemy(const char* backgroundBitmap, int xPosition, int yPosition, const int frames, const int levels, HP_VALUE hpValue, MOVE_SPEED moveSpeed, SHOOT_TIME shootTime, Hero * player);
-	~Enemy();
+	virtual ~Enemy();
 
 	virtual void show() override;
 	virtual void makeShot(ALLEGRO_EVENT events) override;

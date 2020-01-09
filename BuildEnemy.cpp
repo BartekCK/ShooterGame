@@ -1,5 +1,6 @@
 #include "BuildEnemy.h"
 #include "Path.h"
+#include "Zombie.h"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
@@ -42,13 +43,13 @@ Enemy* BuildEnemy::getGalacticSoldier(Player* player)
 Enemy* BuildEnemy::getZombie(Player* player)
 {
 	Path path;
-	return new Enemy(path.ENEMY_ZOMBIE, getRandX(player), getRandY(), 19, 2, HP_VALUE::MIDDLE, MOVE_SPEED::MIDDLE, SHOOT_TIME::SLOW, player);
+	return new Zombie(path.ENEMY_ZOMBIE, getRandX(player), getRandY(), 19, 2, HP_VALUE::MIDDLE, MOVE_SPEED::MIDDLE, SHOOT_TIME::SLOW, player);
 }
 
 Enemy* BuildEnemy::getFastZombie(Player* player)
 {
 	Path path;
-	return new Enemy(path.ENEMY_SMALL_ZOMBIE, getRandX(player), getRandY(), 8, 2, HP_VALUE::LOW, MOVE_SPEED::FAST, SHOOT_TIME::SLOW, player);
+	return new Zombie(path.ENEMY_SMALL_ZOMBIE, getRandX(player), getRandY(), 8, 2, HP_VALUE::LOW, MOVE_SPEED::FAST, SHOOT_TIME::SLOW, player);
 }
 
 Enemy* BuildEnemy::getBoss(Player* player)

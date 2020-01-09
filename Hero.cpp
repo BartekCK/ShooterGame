@@ -1,4 +1,5 @@
 #include "Hero.h"
+#include "Zombie.h"
 #include <iostream>
 
 void Hero::animation(ALLEGRO_EVENT events)
@@ -41,44 +42,63 @@ void Hero::makeShot(ALLEGRO_EVENT events)
 	}
 }
 
-bool Hero::checkHit(std::vector<Hero*> heroes)
+bool Hero::checkHit(std::vector<Hero*> enemies)
 {
 
-	for (auto hh = heroes.begin(); hh != heroes.end(); hh++) {
+	
 
-		std::vector<Ammo*> ammo = (*hh)->getGun()->getAmmo();
+	for (auto hh = enemies.begin(); hh != enemies.end(); hh++) {
 
-		for (auto it = ammo.begin(); it != ammo.end(); it++) {
-
-			if (((*it)->getEndXPosition() > xPosition && (*it)->getEndXPosition() < xPosition + bitmapWidth / frames )&&
-				((*it)->getEndYPosition() > yPosition && (*it)->getEndYPosition() < yPosition + bitmapHeight / levels)) {
-
-
-				if((*it)->getDirection() == SHOOT_DIRECTION::RIGHT_SHOOT)//Trick 
-					(*it)->setXposition(-200000);
-				else
-				{
-					(*it)->setXposition(200000);
-				}
-				//Action to do when the target was hit
-
-				this -> hp -= 10;
-
-			
+		if (Zombie* t = dynamic_cast<Zombie*>(*hh)) {
+			if ((*hh)->getXposition() + ((*hh)->getBitmapWidth() / (*hh)->frames) >= xPosition &&
+				(*hh)->getXposition() <= xPosition + (bitmapWidth/frames) &&
+				(*hh)->getYposition() + ((*hh)->getBitmapHeight() / (*hh)->levels) >= yPosition &&
+				(*hh)->getYposition() <= yPosition + (bitmapHeight/levels)
+				) {
+				//Action when players have collision with ZOMBIE
+				this->hp -= 200;
 				return true;
 			}
-
-
 		}
+		else {
+			std::vector<Ammo*> ammo = (*hh)->getGun()->getAmmo();
+
+			for (auto it = ammo.begin(); it != ammo.end(); it++) {
+
+				if (((*it)->getEndXPosition() > xPosition && (*it)->getEndXPosition() < xPosition + bitmapWidth / frames) &&
+					((*it)->getEndYPosition() > yPosition && (*it)->getEndYPosition() < yPosition + bitmapHeight / levels)) {
+
+
+					if ((*it)->getDirection() == SHOOT_DIRECTION::RIGHT_SHOOT)//Trick 
+						(*it)->setXposition(-200000);
+					else
+					{
+						(*it)->setXposition(200000);
+					}
+					//Action to do when the target was hit
+
+					this->hp -= 10;
+
+
+					return true;
+				}
+
+
+			}
+		}
+
+
+
+		
 	}
 	return false;
 }
 
-bool Hero::checkHit(Hero* hero)
+bool Hero::checkHit(Hero* player)
 {
 	
 
-	std::vector<Ammo*> ammo = hero->getGun()->getAmmo();
+	std::vector<Ammo*> ammo = player->getGun()->getAmmo();
 
 	for (auto it = ammo.begin(); it != ammo.end(); it++) {
 
