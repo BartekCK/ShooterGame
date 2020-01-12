@@ -1,6 +1,6 @@
 #include "GameScene.h"
 #include "BuildEnemy.h"
-
+#include "Music.h"
 
 GameScene::GameScene(Stage* stage)
 	: stage(stage)
@@ -39,6 +39,9 @@ GameScene::~GameScene()
 
 void GameScene::showWindow()
 {
+	Path path;
+	Music* music = new Music(path.MUSIC_GAME, ChooseMusic::MUSIC);
+	music->playMusic();
 	bool move = false;
 	while (!this->done) {
 
@@ -110,7 +113,7 @@ void GameScene::showWindow()
 		}
 
 	}
-	
+	delete music;
 	resetCamera();
 	if (winGame) {
 		this->stage->showWin();

@@ -1,4 +1,5 @@
 #include "MainMenuScene.h"
+#include "Music.h"
 
 
 MainMenuScene::MainMenuScene(Stage* stage)
@@ -31,9 +32,12 @@ MainMenuScene::~MainMenuScene()
 
 void MainMenuScene::showWindow()
 {
+	Path path;
 	int x = 0, y = 0;
 	bool newGame = false, newGame1vs1=false;
 	this->done = false;
+	Music* music = new Music(path.MUSIC_MENU, ChooseMusic::MUSIC);
+	music->playMusic();
 	while (!this->done) {
 
 		ALLEGRO_EVENT events;
@@ -65,7 +69,7 @@ void MainMenuScene::showWindow()
 		this->endGameButton->show();
 		al_flip_display();
 	}
-
+	delete music;
 	if (newGame == true) {
 
 		this->stage->showLevel();

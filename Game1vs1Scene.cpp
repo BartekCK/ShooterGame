@@ -1,5 +1,6 @@
 #include "Game1vs1Scene.h"
 #include "Player.h"
+#include "Music.h"
 
 
 Game1vs1Scene::Game1vs1Scene(Stage* stage)
@@ -28,7 +29,9 @@ Game1vs1Scene::~Game1vs1Scene()
 void Game1vs1Scene::showWindow()
 {
 	bool move = false;
-
+	Path path;
+	Music* music = new Music(path.MUSIC_GAME, ChooseMusic::MUSIC);
+	music->playMusic();
 
 	while (!this->done) {
 
@@ -91,7 +94,7 @@ void Game1vs1Scene::showWindow()
 	}
 
 
-	
+	delete music;
 	this->stage->showMenu();
 
 }

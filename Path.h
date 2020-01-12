@@ -31,6 +31,11 @@ public:
 	const char* OBJECT_HEART = "images/objects/heart.png";
 
 
+	const char* MUSIC_MENU = "sounds/mainMenuSound.wav";
+	const char* MUSIC_GAME = "sounds/gameSound.wav";
+	const char* MUSIC_CLICK = "sounds/clickSound.wav";
+
+
 
 	//Miniature
 

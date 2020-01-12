@@ -58,6 +58,9 @@
     <Filter Include="Source Files\nodes">
       <UniqueIdentifier>{302064ef-2433-48d0-b96a-0db6f22656fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\utilies">
+      <UniqueIdentifier>{1b76c283-558d-444c-a142-cb4374c8e290}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ShooterGame.cpp">
@@ -121,7 +124,10 @@
       <Filter>Source Files\scenes</Filter>
     </ClCompile>
     <ClCompile Include="EndGame.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Music.cpp">
+      <Filter>Source Files\utilies</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -189,7 +195,10 @@
       <Filter>Header Files\scenes</Filter>
     </ClInclude>
     <ClInclude Include="EndGame.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Music.h">
+      <Filter>Header Files\utilies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
