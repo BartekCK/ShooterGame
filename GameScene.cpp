@@ -11,7 +11,7 @@ GameScene::GameScene(Stage* stage)
 	heart = new Heart(path.OBJECT_HEART);
 
 	if (engine->difficultyLevel == DifficultyLevel::EASY)
-		this->HOW_MUTCH_KILL = 15;
+		this->HOW_MUTCH_KILL = 10;
 	else if (engine->difficultyLevel == DifficultyLevel::MEDIUM)
 		this->HOW_MUTCH_KILL = 20;
 	else
@@ -103,13 +103,19 @@ void GameScene::showWindow()
 				done = true;
 			}
 
+
+			
 			allocateMemory();//To delete death enemies
 			al_flip_display();
 		}
 
 	}
-
-	this->stage->showMenu();
+	
+	resetCamera();
+	if (winGame) {
+		this->stage->showWin();
+	}else
+		this->stage->showLose();
 }
 
 
@@ -128,13 +134,27 @@ void GameScene::allocateMemory()
 			}
 		}
 	}
+
+	if (this->checkEnd) {
+		if (enemyEnd != NULL) {
+			if (enemyEnd->checkHp()) {
+				enemyEnd = NULL;
+				this->winGame = true;
+				this->done = true;
+			}
+		}
+		
+	}
+
 }
 
 void GameScene::randEnemy()
 {
 
 	if (this->countKilledEnemies == HOW_MUTCH_KILL) {
-		enemies.push_back(BuildEnemy::getBoss(player));
+		this->enemyEnd = BuildEnemy::getBoss(player);
+		enemies.push_back(enemyEnd);
+		this->checkEnd = true;
 		countKilledEnemies = 99;
 	}
 	else if(this->countKilledEnemies <= HOW_MUTCH_KILL){

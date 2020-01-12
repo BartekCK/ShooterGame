@@ -162,6 +162,7 @@
     <ClCompile Include="Ammo.cpp" />
     <ClCompile Include="BuildEnemy.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="EndGame.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Game1vs1Scene.cpp" />
@@ -187,6 +188,7 @@
     <ClInclude Include="Ammo.h" />
     <ClInclude Include="BuildEnemy.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="EndGame.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Game1vs1Scene.h" />

@@ -5,6 +5,8 @@
 class Stage
 {
 	Scene* menuScene = NULL;
+	Scene* winScene = NULL;
+	Scene* loseScene = NULL;
 	Scene* gameScene = NULL;
 	Scene* levelScene = NULL;
 	Scene* game1vs1Scene = NULL;
@@ -21,5 +23,8 @@ public:
 	void showGame1vs1();
 	void showLevel();
 	void showHero();
+	void showWin();
+	void showLose();
+	
 };
 

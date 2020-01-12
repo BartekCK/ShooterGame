@@ -127,7 +127,7 @@ bool Hero::checkHit(Hero* player)
 
 bool Hero::checkHp()
 {
-	if (this->hp <= 0)
+  	if (this->hp <= 0)
 		return true;
 	else
 		return false;

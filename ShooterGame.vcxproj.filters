@@ -120,6 +120,9 @@
     <ClCompile Include="HeroScene.cpp">
       <Filter>Source Files\scenes</Filter>
     </ClCompile>
+    <ClCompile Include="EndGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -184,6 +187,9 @@
     </ClInclude>
     <ClInclude Include="HeroScene.h">
       <Filter>Header Files\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="EndGame.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

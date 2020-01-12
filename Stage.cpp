@@ -4,6 +4,7 @@
 #include "Game1vs1Scene.h"
 #include "LevelScene.h"
 #include "HeroScene.h"
+#include "EndGame.h"
 #include "Path.h"
 #include <memory>
 
@@ -33,7 +34,16 @@ void Stage::memoryManage()
 		delete heroScene;
 		heroScene = NULL;
 	}
+	if (winScene != NULL) {
+		delete winScene;
+		winScene = NULL;
+	}
+	if (loseScene != NULL) {
+		delete loseScene;
+		loseScene = NULL;
+	}
 }
+
 
 Stage::Stage()
 {
@@ -106,5 +116,21 @@ void Stage::showHero()
 	heroScene = new HeroScene(this);
 	heroScene->setBackground(path.BACKGROUND_MAIN_MENU);
 	heroScene->showWindow();
+}
+
+void Stage::showWin()
+{
+	Path path;
+	winScene = new EndGame(this);
+	winScene->setBackground(path.BACKGROUND_WIN);
+	winScene->showWindow();
+}
+
+void Stage::showLose()
+{
+	Path path;
+	loseScene = new EndGame(this);
+	loseScene->setBackground(path.BACKGROUND_LOSE);
+	loseScene->showWindow();
 }
 

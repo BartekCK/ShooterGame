@@ -16,6 +16,10 @@ class GameScene :public Scene
 	std::vector<Hero*> enemies;
 
 
+	bool winGame = false;
+	bool checkEnd = false;
+	Enemy* enemyEnd = NULL;
+
 	void allocateMemory();
 	void randEnemy();
 
